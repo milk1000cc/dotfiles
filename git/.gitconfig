@@ -1,0 +1,20 @@
+[user]
+	name = milk1000cc
+	email = info@milk1000.cc
+[color]
+        ui = auto
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+        df = diff
+        dfc = diff --cached -M
+[github]
+	user = milk1000cc
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
