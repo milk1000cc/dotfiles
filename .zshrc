@@ -115,4 +115,6 @@ if which rbenv > /dev/null; then
 fi
 export PATH=./bin:$PATH
 
-cd `cat $HOME/.curdir`
+if [ -f "$HOME/.curdir" ]; then
+    cd `cat $HOME/.curdir`
+fi
