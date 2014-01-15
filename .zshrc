@@ -38,12 +38,9 @@ setopt hist_ignore_dups
 setopt share_history
 setopt auto_cd
 setopt auto_pushd
-setopt correct
 setopt list_packed
 setopt no_beep
 setopt magic_equal_subst
-
-SPROMPT="%{[01;35m%}%r ? [n,y,a,e]:%{[m%} "
 
 HISTFILE=~/.zsh_history
 HISTSIZE=9999999
