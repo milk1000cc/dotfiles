@@ -9,3 +9,6 @@
   (lambda ()
     (font-lock-add-keywords nil
       '(("^[^\n]\\{80\\}\\(.*\\)$" 1 font-lock-warning-face t)))))
+
+(add-to-list 'auto-mode-alist '("\\.god$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.cap$" . ruby-mode))
