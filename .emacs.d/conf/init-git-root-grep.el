@@ -16,7 +16,7 @@
   (interactive)
   (let (
         (git-dir (concat (find-file-upward ".git") "/../"))
-        (cmd "git --no-pager grep -n -i ")
+        (cmd "git --no-pager grep -n -i -P ")
         (origin-default-directory default-directory)
         )
     (setq default-directory git-dir)
