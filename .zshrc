@@ -46,7 +46,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=9999999
 SAVEHIST=9999999
 
-MY_NAME=${HOST%%.*}
+MY_NAME=`hostname -f`
 
 alias ls="ls -F --color"
 alias ll="ls -l"
