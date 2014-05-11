@@ -3,6 +3,7 @@ stty stop undef
 path=(
     $HOME/local/bin
     $HOME/.rbenv/bin
+    $HOME/.cask/bin
 
     /usr/local/sbin
     /usr/local/bin
