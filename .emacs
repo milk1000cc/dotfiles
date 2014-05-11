@@ -19,9 +19,10 @@
 (defvar run-terminal-emacs (and run-darwin (not window-system)))
 
 (add-to-load-path "~/.emacs.d/elisp"
-                  "~/.emacs.d/conf")
+                  "~/.emacs.d/conf"
+                  "~/.cask")
 
-(load "init-package")
+(load "init-cask")
 (load "init-session")
 (load "init-global")
 (load "init-keymaps")
