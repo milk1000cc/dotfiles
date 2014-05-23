@@ -11,6 +11,7 @@
 (set-selection-coding-system 'utf-8)
 (setq default-buffer-file-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
+(set-coding-system-priority 'utf-8)
 
 ;; メニューバー、ツールバー非表示
 (eval-safe (menu-bar-mode 0))
