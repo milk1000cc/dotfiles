@@ -42,6 +42,7 @@
 (load "init-ruby")
 (load "init-rails")
 (load "init-html")
+(load "init-slim")
 
 (when run-linux
   (load "init-color")
