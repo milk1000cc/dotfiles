@@ -12,3 +12,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.god$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.cap$" . ruby-mode))
+
+;; マジックコメントを入れない
+(setq ruby-insert-encoding-magic-comment nil)
