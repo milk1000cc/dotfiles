@@ -16,21 +16,15 @@
  '(match ((((class color) (min-colors 88) (background light)) (:background "yellow" :foreground "black")))))
 
 ;; Mac Clipboard との共有
-;; http://d.hatena.ne.jp/kiririmode/20110129/p1
-(defvar prev-yanked-text nil "*previous yanked text")
+;; http://qiita.com/tstomoki/items/24d63217f797c6929a23
+(defun copy-from-osx ()
+ (shell-command-to-string "pbpaste"))
 
-(setq interprogram-cut-function
-      (lambda (text &optional push)
-        ; use pipe
-        (let ((process-connection-type nil))
-          (let ((proc (start-process "pbcopy" nil "pbcopy")))
-            (process-send-string proc string)
-            (process-send-eof proc)
-            ))))
+(defun paste-to-osx (text &optional push)
+ (let ((process-connection-type nil))
+     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+       (process-send-string proc text)
+       (process-send-eof proc))))
 
-(setq interprogram-paste-function
-      (lambda ()
-        (let ((text (shell-command-to-string "pbpaste")))
-          (if (string= prev-yanked-text text)
-              nil
-            (setq prev-yanked-text text)))))
+(setq interprogram-cut-function 'paste-to-osx)
+(setq interprogram-paste-function 'copy-from-osx)
