@@ -62,3 +62,6 @@
 ;; シンボリックリンク先がバージョン管理されていても問題ない
 ;; http://openlab.dino.co.jp/2008/10/30/212934368.html
 (setq vc-follow-symlinks t)
+
+;; C-j でインデント
+(electric-indent-mode -1)

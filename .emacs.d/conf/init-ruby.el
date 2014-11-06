@@ -15,3 +15,7 @@
 
 ;; マジックコメントを入れない
 (setq ruby-insert-encoding-magic-comment nil)
+
+;; インデントをちゃんとする
+;; http://stackoverflow.com/questions/19900180/emacs-24-ruby-mode-indentation-behavior-when-using-iterator-such-as-each
+(setq ruby-use-smie nil)
