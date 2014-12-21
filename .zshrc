@@ -33,6 +33,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
 
+autoload -Uz zmv
+
 ## setopt
 setopt hist_ignore_dups
 setopt share_history
@@ -56,6 +58,7 @@ alias r="rails"
 alias e="emacs"
 alias vi="vim"
 alias be="bundle exec"
+alias zmv="noglob zmv -W"
 
 function set-git-current-branch-env() {
     GIT_CURRENT_BRANCH=$( git branch &> /dev/null | grep '^\*' | cut -b 3- )
