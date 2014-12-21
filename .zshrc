@@ -29,6 +29,7 @@ autoload -U compinit
 compinit -u
 zstyle ':completion:*' list-colors 'di=;36;1' 'ln=;35;1' 'so=;34;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:default' menu select=2
 
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
