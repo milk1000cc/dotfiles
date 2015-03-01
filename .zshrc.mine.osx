@@ -1,4 +1,4 @@
-export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+export PATH=$(brew --prefix coreutils)/libexec/gnubin:/usr/local/heroku/bin:$PATH
 HISTFILE=~/Dropbox/history_files/zsh_history
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
