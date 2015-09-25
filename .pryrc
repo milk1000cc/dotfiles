@@ -1,1 +1,2 @@
-ActiveRecord::Base.logger.level = 0 if defined?(ActiveRecord::Base)
+require 'awesome_print'
+AwesomePrint.pry!
