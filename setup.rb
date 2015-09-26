@@ -18,7 +18,6 @@ end
 
 link '.zshrc', '~/.zshrc'
 
-link '.pryrc', '~/.pryrc'
 link '.gemrc', '~/.gemrc'
 link '.railsrc', '~/.railsrc'
 
