@@ -31,9 +31,7 @@
 (load "init-abbrves")
 (load "init-dired")
 (load "init-anything")
-(load "init-coffee")
 (load "init-redo")
-(load "init-javascript")
 (load "init-ack")
 (load "init-git-root-grep")
 (load "init-grep-edit")
@@ -41,8 +39,9 @@
 (load "init-yasnippet")
 (load "init-ruby")
 (load "init-rails")
-(load "init-html")
+(load "init-web-mode")
 (load "init-slim")
+(load "init-coffee")
 
 (when run-linux
   (load "init-color")
