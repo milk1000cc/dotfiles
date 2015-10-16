@@ -7,6 +7,7 @@
 (depends-on "grep-a-lot")
 (depends-on "haml-mode")
 (depends-on "inf-ruby")
+(depends-on "js2-mode")
 (depends-on "nginx-mode")
 (depends-on "php-mode")
 (depends-on "redo+")

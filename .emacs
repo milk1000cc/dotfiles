@@ -39,6 +39,7 @@
 (load "init-yasnippet")
 (load "init-ruby")
 (load "init-rails")
+(load "init-javascript")
 (load "init-web-mode")
 (load "init-slim")
 (load "init-coffee")
