@@ -43,6 +43,7 @@
 (load "init-web-mode")
 (load "init-slim")
 (load "init-coffee")
+(load "init-rspec-mode")
 
 (when run-linux
   (load "init-color")
