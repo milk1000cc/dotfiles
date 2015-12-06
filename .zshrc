@@ -61,7 +61,9 @@ alias be="bundle exec"
 alias zmv="noglob zmv -W"
 
 function set-git-current-branch-env() {
-    GIT_CURRENT_BRANCH=$( git branch &> /dev/null | grep '^\*' | cut -b 3- )
+    # http://qiita.com/yaotti/items/0af5d50f4f52d22a46fe
+    local git==git
+    GIT_CURRENT_BRANCH=`${git} symbolic-ref --short HEAD 2> /dev/null`
 }
 
 function set-current-rbenv-env() {
@@ -77,7 +79,7 @@ function update-prompt() {
         RUBY_PROMPT_STRING=""
     fi
 
-    if [ "`git ls-files 2>/dev/null`" ]; then
+    if [ -n "${GIT_CURRENT_BRANCH}" ]; then
         GIT_PROMPT_STRING="%{[01;32m%}[$GIT_CURRENT_BRANCH]%{[m%}"
     else
         GIT_PROMPT_STRING=""
@@ -113,6 +115,11 @@ fi
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
 fi
+
+if which hub > /dev/null; then
+    eval "$(hub alias -s)"
+fi
+
 export PATH=./bin:$PATH
 
 if [ -f "$HOME/.curdir" ]; then
