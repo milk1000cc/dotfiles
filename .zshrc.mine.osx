@@ -7,6 +7,6 @@ export RBENV_ROOT=/usr/local/var/rbenv
 export _Z_DATA=~/Dropbox/history_files/z
 source `brew --prefix`/etc/profile.d/z.sh
 
-if [ ! -e "/var/run/utmp" ]; then
-    sudo touch /var/run/utmp
+if [ -z "$TMUX" ]; then
+    tmux
 fi
