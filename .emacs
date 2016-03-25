@@ -23,6 +23,7 @@
                   "~/.cask")
 
 (load "init-cask")
+(load "init-color")
 (load "init-session")
 (load "init-global")
 (load "init-keymaps")
@@ -45,13 +46,6 @@
 (load "init-coffee")
 (load "init-rspec-mode")
 
-(when run-linux
-  (load "init-color")
-  )
-(when run-carbon-emacs
-  (load "init-color")
-  (load "init-mac")
-  )
 (when run-terminal-emacs
   (load "init-terminal-emacs")
   )
