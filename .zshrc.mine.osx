@@ -3,6 +3,7 @@ HISTFILE=~/Dropbox/history_files/zsh_history
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export RBENV_ROOT=/usr/local/var/rbenv
+export ITERM_24BIT=1
 
 export _Z_DATA=~/Dropbox/history_files/z
 source `brew --prefix`/etc/profile.d/z.sh
