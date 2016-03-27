@@ -168,7 +168,10 @@
    ;; `(link-visited                        ((t (:foreground ,my:n:magenta :underline t ))))
    ;; menu
    ;; `(match                               ((t (:foreground nil :background nil :underline ,my:n:blue :weight bold))))
+
    ;; `(minibuffer-prompt                   ((t (:foreground ,my:n:red  ))))
+   `(minibuffer-prompt                   ((t (:foreground ,my:h:lightb  ))))
+
    ;; `(mode-line                           ((t (:foreground ,my:n:cyan :bold t :background ,my:h:black :box (:line-width -1 :style released-button)))))
    ;; `(mode-line-buffer-id                 ((t (:bold t))))
    ;; `(mode-line-emphasis                  ((t (:bold t))))
@@ -177,7 +180,10 @@
    ;; `(next-error                          ((t (:foreground ,my:n:magenta ))))
    ;; `(nobreak-space                       ((t (:inherit default :underline ,my:h:yellow ))))
    ;; `(query-replace                       ((t (:background ,my:n:magenta ))))
-   ;; `(region                              ((t (:background ,my:l:yellow ))))
+
+   ;;`(region                              ((t (:background ,my:l:yellow ))))
+   `(region                              ((t (:background ,my:h:red ))))
+
    ;; `(secondary-selection                 ((t (:background ,my:l:cyan ))))
    ;; `(shadow                              ((t (:foreground ,my:n:white ))))
    ;; scroll-bar
