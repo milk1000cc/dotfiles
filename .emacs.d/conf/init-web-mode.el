@@ -14,4 +14,3 @@
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 
 (add-to-list 'auto-mode-alist '("\\.html\\.erb$" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
