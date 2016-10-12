@@ -22,3 +22,6 @@
 	prune = true
 [pull]
 	rebase = preserve
+	ff = only
+[merge]
+	ff = false
