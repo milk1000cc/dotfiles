@@ -1,4 +1,6 @@
 --database mysql
---skip-test-unit
 --skip-bundle
+--skip-puma
+--skip-action-cable
+--skip-test
 --skip-turbolinks
