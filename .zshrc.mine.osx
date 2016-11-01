@@ -2,7 +2,7 @@ BREW_PREFIX=/usr/local/opt
 
 path=(
     $BREW_PREFIX/coreutils/libexec/gnubin
-    $BREW_PREFIX/elasticsearch/libexec/bin
+    $BREW_PREFIX/elasticsearch24/libexec/bin
     $path
 )
 
