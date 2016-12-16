@@ -523,20 +523,6 @@
    )
   )
 
-;; transparent background
-(cond
- ((window-system)
-  (progn
-    (set-frame-parameter (selected-frame) 'alpha '(95 70))
-    (add-to-list 'default-frame-alist '(alpha 95 70))
-    (set-background-color "#242424")
-    ))
- (t
-  (progn
-    (load "term/xterm")
-    (xterm-register-default-colors)
-    (tty-set-up-initial-frame-faces))
-  ))
 ;;;###autoload
 (when (boundp 'custom-theme-load-path)
   (add-to-list 'custom-theme-load-path
