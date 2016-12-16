@@ -18,3 +18,5 @@
 (define-key anything-map (kbd "M-v") 'anything-previous-source)
 
 (global-set-key "\C-x\C-l" 'anything)
+
+(setq anything-enable-shortcuts nil)
