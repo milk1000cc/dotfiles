@@ -116,10 +116,6 @@ if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
 fi
 
-if which hub > /dev/null; then
-    eval "$(hub alias -s)"
-fi
-
 export PATH=./bin:$PATH
 
 if [ -f "$HOME/.curdir" ]; then
