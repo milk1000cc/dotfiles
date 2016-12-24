@@ -116,6 +116,10 @@ if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
 fi
 
+if which yarn > /dev/null; then
+    export PATH=$PATH:`yarn global bin`
+fi
+
 export PATH=./bin:$PATH
 
 if [ -f "$HOME/.curdir" ]; then
