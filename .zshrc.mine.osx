@@ -9,6 +9,8 @@ path=(
 
 HISTFILE=~/Dropbox/history_files/zsh_history
 
+alias emacs="reattach-to-user-namespace emacs -nw"
+
 export RBENV_ROOT=/usr/local/var/rbenv
 export ITERM_24BIT=1
 
