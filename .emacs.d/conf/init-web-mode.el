@@ -14,3 +14,12 @@
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 
 (add-to-list 'auto-mode-alist '("\\.html\\.erb$" . web-mode))
+
+;; Thanks to: http://cortyuming.hateblo.jp/entry/2015/01/17/113525
+ (defun my-web-mode-highlight-ignore-str ()
+    (interactive "p")
+    (highlight-regexp "\t" 'hi-yellow)
+    (highlight-regexp "　" 'hi-pink)
+    (highlight-regexp "[ \t]+$" 'hi-blue)
+    )
+  (add-hook 'web-mode-hook 'my-web-mode-highlight-ignore-str)
