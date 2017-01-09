@@ -45,6 +45,7 @@
 (load "init-slim")
 (load "init-coffee")
 (load "init-rspec-mode")
+(load "init-vue")
 
 (when run-terminal-emacs
   (load "init-terminal-emacs")
