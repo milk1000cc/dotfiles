@@ -10,6 +10,7 @@ path=(
 HISTFILE=~/Dropbox/history_files/zsh_history
 
 alias emacs="reattach-to-user-namespace emacs -nw"
+alias diff="colordiff -ur"
 
 export RBENV_ROOT=/usr/local/var/rbenv
 export ITERM_24BIT=1
