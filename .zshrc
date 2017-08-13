@@ -66,6 +66,16 @@ function set-git-current-branch-env() {
     GIT_CURRENT_BRANCH=`${git} symbolic-ref --short HEAD 2> /dev/null`
 }
 
+function set-git-stash-env() {
+    # Thanks to: http://qiita.com/Cside/items/13f85c11d3d0aa35d7ef
+    local cnt=$( git stash list 2>/dev/null | wc -l | tr -d ' ' )
+    if [ "$cnt" -gt 0 ]; then
+      GIT_STASH=":$cnt"
+    else
+      GIT_STASH=""
+    fi
+}
+
 function set-current-rbenv-env() {
     if which rbenv > /dev/null; then
       CURRENT_RUBY=$( rbenv version | sed -e 's/ .*//' )
@@ -80,7 +90,8 @@ function update-prompt() {
     fi
 
     if [ -n "${GIT_CURRENT_BRANCH}" ]; then
-        GIT_PROMPT_STRING="%{[01;32m%}[$GIT_CURRENT_BRANCH]%{[m%}"
+        set-git-stash-env
+        GIT_PROMPT_STRING="%{[01;32m%}[$GIT_CURRENT_BRANCH$GIT_STASH]%{[m%}"
     else
         GIT_PROMPT_STRING=""
     fi
