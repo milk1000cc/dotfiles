@@ -61,9 +61,7 @@ alias be="bundle exec"
 alias zmv="noglob zmv -W"
 
 function set-git-current-branch-env() {
-    # http://qiita.com/yaotti/items/0af5d50f4f52d22a46fe
-    local git==git
-    GIT_CURRENT_BRANCH=`${git} symbolic-ref --short HEAD 2> /dev/null`
+    GIT_CURRENT_BRANCH=$( git symbolic-ref --short HEAD 2> /dev/null )
 }
 
 function set-git-stash-env() {
