@@ -11,11 +11,6 @@ alias emacs="reattach-to-user-namespace emacs -nw"
 alias diff="colordiff -ur"
 
 export RBENV_ROOT=/usr/local/var/rbenv
-export ITERM_24BIT=1
-export AWS_DEFAULT_REGION=ap-northeast-1
-
-export _Z_DATA=~/Dropbox/history_files/z
-source `brew --prefix`/etc/profile.d/z.sh
 
 if [ -z "$TMUX" ]; then
     tmux
