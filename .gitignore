@@ -1,1 +1,7 @@
-/.emacs.d/.cask
+/.emacs.d/*
+!/.emacs.d/Cask
+!/.emacs.d/public_repos
+!/.emacs.d/init.el
+!/.emacs.d/inits
+!/.emacs.d/snippets
+!/.emacs.d/themes
