@@ -24,7 +24,6 @@ link '.railsrc', '~/.railsrc'
 link 'git/.gitconfig', '~/.gitconfig'
 link 'git/.gitignore', '~/.gitignore'
 
-link '.emacs', '~/.emacs'
 link '.emacs.d', '~/.emacs.d'
 
 if RUBY_PLATFORM =~ /darwin/
