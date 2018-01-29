@@ -13,4 +13,3 @@
 ;; カスタムキーバインド
 (define-key global-map (kbd "C-x C-l") 'helm-mini)
 (define-key global-map (kbd "M-x") 'helm-M-x)
-(define-key global-map (kbd "M-y") 'helm-show-kill-ring)
