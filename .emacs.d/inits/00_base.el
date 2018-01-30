@@ -100,9 +100,11 @@
 (load-theme 'pastel t)
 
 ;; カスタムキーバインド
-(define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
+(require 'wdired)
 (define-key global-map (kbd "C-x C-i") 'indent-region)
 (define-key global-map (kbd "C-u") 'undo)
 (define-key global-map (kbd "C-x l") 'goto-line)
 (define-key global-map (kbd "C-o") 'dabbrev-expand)
 (define-key global-map (kbd "C-x SPC") 'cua-set-rectangle-mark)
+(define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
+(define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
