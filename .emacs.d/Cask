@@ -18,7 +18,6 @@
 (depends-on "projectile")
 (depends-on "pug-mode")
 (depends-on "quickrun")
-(depends-on "rails-log-mode")
 (depends-on "sass-mode")
 (depends-on "session")
 (depends-on "slim-mode")
