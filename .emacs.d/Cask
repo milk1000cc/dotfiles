@@ -8,7 +8,6 @@
 (depends-on "enh-ruby-mode")
 (depends-on "haml-mode")
 (depends-on "helm")
-(depends-on "helm-projectile")
 (depends-on "init-loader")
 (depends-on "js2-mode")
 (depends-on "lua-mode")

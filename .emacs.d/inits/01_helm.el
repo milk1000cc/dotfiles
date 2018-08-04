@@ -1,13 +1,8 @@
 (require 'helm-config)
 
-;; helm + projectile
-(require 'helm-projectile)
-(setq projectile-completion-system 'helm)
-
 ;; helm-mini のソース
 (setq helm-mini-default-sources '(helm-source-buffers-list
                                   helm-source-recentf
-                                  helm-source-projectile-files-list
                                   helm-source-locate))
 
 ;; カスタムキーバインド
