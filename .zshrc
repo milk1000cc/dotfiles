@@ -3,6 +3,7 @@ stty stop undef
 path=(
     $HOME/local/bin
     $HOME/.rbenv/bin
+    $HOME/.yarn/bin
     $HOME/.cask/bin
 
     /usr/local/sbin
@@ -123,10 +124,6 @@ fi
 
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
-fi
-
-if which yarn > /dev/null; then
-    export PATH=$PATH:`yarn global bin`
 fi
 
 export PATH=./bin:$PATH
