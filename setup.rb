@@ -29,4 +29,5 @@ link '.emacs.d', '~/.emacs.d'
 if RUBY_PLATFORM =~ /darwin/
   link '.zshrc.mine.osx', '~/.zshrc.mine'
   link '.tmux.conf', '~/.tmux.conf'
+  link '.bundle/config', '~/.bundle/config'
 end
