@@ -9,6 +9,7 @@ HISTFILE=~/Dropbox/history_files/zsh_history
 
 alias emacs="reattach-to-user-namespace emacs -nw"
 alias diff="colordiff -ur"
+alias hb="hub browse"
 
 export RBENV_ROOT=/usr/local/var/rbenv
 
