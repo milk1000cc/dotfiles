@@ -21,4 +21,4 @@
 [fetch]
 	prune = true
 [pull]
-	rebase = preserve
+	rebase = true
