@@ -6,7 +6,7 @@ path=(
     $path
 )
 
-HISTFILE=~/GoogleDrive/zsh_history
+HISTFILE=~/Dropbox/zsh_history
 
 alias emacs="reattach-to-user-namespace emacs -nw"
 alias diff="colordiff -ur"
