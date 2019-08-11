@@ -1,10 +1,17 @@
-stty stop undef
+# Thanks to:
+# WEB+DB PRESS Vol.83 (https://gihyo.jp/magazine/wdpress/archive/2014/vol83)
+# https://qiita.com/mollifier/items/8d5a627d773758dd8078
+
+# (N-/): 存在しないときは追加しない (https://qiita.com/mollifier/items/42ae46ff4140251290a7)
+fpath=(
+    /usr/local/share/zsh-completions
+    $fpath
+)
 
 path=(
-    $HOME/local/bin
-    $HOME/.rbenv/bin
-    $HOME/.yarn/bin
-    $HOME/.cask/bin
+    $HOME/.rbenv/bin(N-/)
+    $HOME/.yarn/bin(N-/)
+    $HOME/.cask/bin(N-/)
 
     /usr/local/sbin
     /usr/local/bin
@@ -15,119 +22,106 @@ path=(
     /sbin
 )
 
-export EDITOR="emacs -nw"
-export LANG=ja_JP.UTF-8
-export LSCOLORS=GxFxExdxBxegedabagacad
-export LS_COLORS='di=01;36:ln=01;35:so=01;34:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
-export WORDCHARS='*?[]~=&;!#$%^(){}<>'
-
-bindkey -e
-bindkey '^R' history-incremental-pattern-search-backward
-bindkey '^S' history-incremental-pattern-search-forward
-
-## modules
-autoload -U compinit
-compinit -u
-zstyle ':completion:*' list-colors 'di=;36;1' 'ln=;35;1' 'so=;34;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-autoload -Uz url-quote-magic
-zle -N self-insert url-quote-magic
-
-autoload -Uz zmv
-
-## setopt
-setopt hist_ignore_dups
-setopt share_history
-setopt auto_cd
-setopt auto_pushd
-setopt list_packed
-setopt no_beep
-setopt magic_equal_subst
-
 HISTFILE=~/.zsh_history
-HISTSIZE=9999999
-SAVEHIST=9999999
+HISTSIZE=10000
+SAVEHIST=10000
 
-MY_NAME=`hostname -f`
+export EDITOR='emacs'
+export LS_COLORS='di=01;36:ln=01;35:so=01;34:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
 
-alias ls="ls -F --color"
-alias ll="ls -l"
-alias g="git"
-alias emacs="emacs -nw"
-alias r="rails"
-alias e="emacs"
-alias vi="vim"
-alias be="bundle exec"
-alias zmv="noglob zmv -W"
+bindkey '^r' history-incremental-pattern-search-backward  # glob (*) 検索ができるように
 
-function set-git-current-branch-env() {
-    GIT_CURRENT_BRANCH=$( git symbolic-ref --short HEAD 2> /dev/null )
+# /, - などで区切る
+autoload -Uz select-word-style  # -U: alias 上書きを防ぐ, -z: zsh 形式 (https://medium.com/@rukurx/ad471efd84c3)
+select-word-style default
+zstyle ':zle:*' word-chars ' /=;@:{},|-'
+zstyle ':zle:*' word-style unspecified  # word-chars を区切り文字として扱う
+
+# 補完
+autoload -Uz compinit
+compinit -u  # セキュリティ警告を出さない
+zstyle ':completion:*' list-colors $LS_COLORS
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # 大文字・小文字を区別しない
+
+# zmv
+autoload -Uz zmv
+alias zmv='noglob zmv -W'
+
+# vcs_info
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' formats '%b%m'
+zstyle ':vcs_info:git+set-message:*' hooks git-stash-count
+
+setopt NO_FLOW_CONTROL  # ^Q/^S のフローコントロールを無効にする
+setopt NO_BEEP
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt LIST_PACKED  # ls などの補完を見やすく
+setopt MAGIC_EQUAL_SUBST  # ./configure --prefix=xxx などの xxx を補完
+
+alias ls='ls -F --color'
+alias ll='ls -l'
+alias g='git'
+alias r='rails'
+alias e='emacs'
+alias vi='vim'
+alias be='bundle exec'
+
++vi-git-stash-count() {
+    local cnt
+
+    cnt=$( git stash list 2>/dev/null | wc -l )
+
+    if [[ $cnt -gt 0 ]]; then
+        hook_com[misc]=":${cnt}"
+    fi
 }
 
-function set-git-stash-env() {
-    # Thanks to: http://qiita.com/Cside/items/13f85c11d3d0aa35d7ef
-    local cnt=$( git stash list 2>/dev/null | wc -l | tr -d ' ' )
-    if [ "$cnt" -gt 0 ]; then
-      GIT_STASH=":$cnt"
+NEWLINE=$'\n'
+
+_update_prompt() {
+    local -a messages1 messages2
+    local ruby_version hostname
+
+    if [[ -n $SSH_CONNECTION ]]; then
+        messages1+=( "%F{red}%BREMOTE%b%f" )
+    fi
+
+    messages1+=( "%F{yellow}%B%~%b%f" )
+
+    if (( $+commands[rbenv] )); then
+        ruby_version=$( rbenv version-name )
+        messages1+=( "%F{magenta}%B%U(${ruby_version})%u%b%f" )
+    fi
+
+    if [[ -n $vcs_info_msg_0_ ]]; then
+        messages1+=( "%F{green}%B[${vcs_info_msg_0_}]%b%f" )
+    fi
+
+    if [[ -n $SSH_CONNECTION ]]; then
+        hostname=$( hostname -f )
+        messages2+=( "%F{red}%B%U%n@${hostname}$%u%b%f" )
     else
-      GIT_STASH=""
+        messages2+=( "%F{blue}%B%n@%m$%b%f" )
     fi
+
+    PROMPT="${(j: :)messages1}${NEWLINE}${(j: :)messages2} "
 }
 
-function set-current-rbenv-env() {
-    if which rbenv > /dev/null; then
-      CURRENT_RUBY=$( rbenv version | sed -e 's/ .*//' )
-    fi
-}
-
-function update-prompt() {
-    if [ -n "${CURRENT_RUBY}" ]; then
-        RUBY_PROMPT_STRING="%{[01;04;35m%}(${CURRENT_RUBY})%{[m%} "
-    else
-        RUBY_PROMPT_STRING=""
-    fi
-
-    if [ -n "${GIT_CURRENT_BRANCH}" ]; then
-        set-git-stash-env
-        GIT_PROMPT_STRING="%{[01;32m%}[$GIT_CURRENT_BRANCH$GIT_STASH]%{[m%}"
-    else
-        GIT_PROMPT_STRING=""
-    fi
-
-    if [ -z "${REMOTEHOST}${SSH_CONNECTION}" ] || [ "`echo $SSH_CONNECTION | cut -d ' ' -f 3 | grep '^192\.168'`" ]; then
-        REMOTE_PROMPT_STRING=""
-        NAME_PROMPT_STRING="%{[01;34m%}${LOGNAME}@${MY_NAME}$%{[m%}"
-    else
-        REMOTE_PROMPT_STRING="%{[01;31m%}REMOTE%{[m%} "
-        NAME_PROMPT_STRING="%{[01;04;31m%}${LOGNAME}@${MY_NAME}$%{[m%}"
-    fi
-
-    PROMPT="${REMOTE_PROMPT_STRING}%{[m%}%{[01;33m%}%~ %{[m%}${RUBY_PROMPT_STRING}${GIT_PROMPT_STRING}
-${NAME_PROMPT_STRING} "
-}
-
-function precmd() {
-    set-git-current-branch-env
-    set-current-rbenv-env
-    update-prompt
-}
-
-function cd() {
-    builtin cd "$@"
+_update_curdir() {
     echo $PWD > $HOME/.curdir
 }
 
-if [ -f "$HOME/.zshrc.mine" ]; then
-    source "$HOME/.zshrc.mine"
-fi
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd vcs_info
+add-zsh-hook precmd _update_prompt
+add-zsh-hook chpwd _update_curdir
 
-if which rbenv > /dev/null; then
-    eval "$(rbenv init -)"
-fi
+[[ -f "$HOME/.zshrc.local" ]] && . "$HOME/.zshrc.local"
+
+(( $+commands[rbenv] )) && eval "$(rbenv init -)"
 
 export PATH=./bin:$PATH
 
-if [ -f "$HOME/.curdir" ]; then
-    cd `cat $HOME/.curdir`
-fi
+[[ -f "$HOME/.curdir" ]] && cd `cat $HOME/.curdir`

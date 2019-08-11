@@ -27,7 +27,7 @@ link 'git/.gitignore', '~/.gitignore'
 link '.emacs.d', '~/.emacs.d'
 
 if RUBY_PLATFORM =~ /darwin/
-  link '.zshrc.mine.osx', '~/.zshrc.mine'
+  link '.zshrc.local/osx.zsh', '~/.zshrc.local'
   link '.tmux.conf', '~/.tmux.conf'
   link '.bundle/config', '~/.bundle/config'
 end

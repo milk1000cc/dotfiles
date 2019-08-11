@@ -8,11 +8,9 @@ path=(
 
 HISTFILE=~/Dropbox/zsh_history
 
-alias emacs="reattach-to-user-namespace emacs -nw"
-alias diff="colordiff -ur"
+alias emacs='reattach-to-user-namespace emacs'
+alias diff='colordiff -ur'
 
 export RBENV_ROOT=/usr/local/var/rbenv
 
-if [ -z "$TMUX" ]; then
-    tmux
-fi
+[[ -z $TMUX ]] && tmux
