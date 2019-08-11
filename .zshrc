@@ -121,6 +121,7 @@ add-zsh-hook chpwd _update_curdir
 [[ -f "$HOME/.zshrc.local" ]] && . "$HOME/.zshrc.local"
 
 (( $+commands[rbenv] )) && eval "$(rbenv init -)"
+
 path=( ./bin $path )  # for rails projects
 
 [[ -f "$HOME/.curdir" ]] && cd `cat $HOME/.curdir`
