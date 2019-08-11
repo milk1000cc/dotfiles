@@ -11,6 +11,4 @@ HISTFILE=~/Dropbox/zsh_history
 alias emacs='reattach-to-user-namespace emacs'
 alias diff='colordiff -ur'
 
-export RBENV_ROOT=/usr/local/var/rbenv
-
 [[ -z $TMUX ]] && tmux

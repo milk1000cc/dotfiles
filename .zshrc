@@ -118,10 +118,10 @@ add-zsh-hook precmd vcs_info
 add-zsh-hook precmd _update_prompt
 add-zsh-hook chpwd _update_curdir
 
-[[ -f "$HOME/.zshrc.local" ]] && . "$HOME/.zshrc.local"
-
 (( $+commands[rbenv] )) && eval "$(rbenv init -)"
 
 path=( ./bin $path )  # for rails projects
+
+[[ -f "$HOME/.zshrc.local" ]] && . "$HOME/.zshrc.local"
 
 [[ -f "$HOME/.curdir" ]] && cd `cat $HOME/.curdir`
