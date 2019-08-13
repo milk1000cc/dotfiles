@@ -31,10 +31,10 @@ export LS_COLORS='di=01;36:ln=01;35:so=01;34:ex=01;31:bd=46;34:cd=43;34:su=41;30
 
 bindkey '^r' history-incremental-pattern-search-backward  # glob (*) 検索ができるように
 
-# /, - などで区切る
+# /, -, ', " などで区切る
 autoload -Uz select-word-style  # -U: alias 上書きを防ぐ, -z: zsh 形式 (https://medium.com/@rukurx/ad471efd84c3)
 select-word-style default
-zstyle ':zle:*' word-chars ' /=;@:{},|-'
+zstyle ':zle:*' word-chars " /=;@:{},|-'\""
 zstyle ':zle:*' word-style unspecified  # word-chars を区切り文字として扱う
 
 # 補完
