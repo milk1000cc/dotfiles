@@ -108,7 +108,3 @@
 (define-key global-map (kbd "C-x SPC") 'cua-set-rectangle-mark)
 (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 (define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
-
-;; WSL の emacs で C-SPC が効かないので、F8 で代替
-;; AutoHotkey などで C-SPC を F8 に割り当てる
-(define-key global-map (kbd "<f8>") 'set-mark-command)
