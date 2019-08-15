@@ -2,7 +2,6 @@
 (source melpa)
 
 (depends-on "ag")
-(depends-on "ahk-mode")
 (depends-on "bundler")
 (depends-on "coffee-mode")
 (depends-on "dockerfile-mode")
