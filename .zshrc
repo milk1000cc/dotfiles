@@ -28,7 +28,7 @@ SAVEHIST=10000
 
 export TERM='xterm-256color'
 export LANG='ja_JP.UTF-8'
-export EDITOR='emacs'
+export EDITOR='emacs -nw'
 export LS_COLORS='di=01;36:ln=01;35:so=01;34:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
 
 bindkey '^r' history-incremental-pattern-search-backward  # glob (*) 検索ができるように
@@ -66,7 +66,7 @@ alias ls='ls -F --color'
 alias ll='ls -l'
 alias g='git'
 alias r='rails'
-alias e='emacs'
+alias e='emacs -nw'
 alias vi='vim'
 alias be='bundle exec'
 
