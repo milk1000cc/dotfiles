@@ -8,7 +8,6 @@ path=(
 
 HISTFILE=~/Dropbox/zsh_history
 
-alias emacs='reattach-to-user-namespace emacs'
 alias diff='colordiff -ur'
 
 [[ -z $TMUX ]] && tmux
