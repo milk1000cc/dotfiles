@@ -4,30 +4,51 @@
 
 require 'pathname'
 require 'fileutils'
+require 'optparse'
+
 include FileUtils::Verbose
 
 def link(src, dst)
-  puts "#{src} =>\n\t#{dst}"
+  puts "# #{ src } => #{ dst }"
+
   src = Pathname.new(src).expand_path
+
   dst = Pathname.new(dst).expand_path
   dst.parent.mkpath unless dst.parent.exist?
   remove_file dst if dst.symlink?
   remove_file dst if dst.file?
+
   ln_sf src.to_s, dst.to_s
+  puts
 end
 
-link '.zshrc', '~/.zshrc'
+def link_base_files
+  link '.zshrc', '~/.zshrc'
 
-link '.gemrc', '~/.gemrc'
-link '.railsrc', '~/.railsrc'
+  link '.gemrc', '~/.gemrc'
+  link '.railsrc', '~/.railsrc'
 
-link 'git/.gitconfig', '~/.gitconfig'
-link 'git/.gitignore', '~/.gitignore'
+  link 'git/.gitconfig', '~/.gitconfig'
+  link 'git/.gitignore', '~/.gitignore'
 
-link '.emacs.d', '~/.emacs.d'
-
-if RUBY_PLATFORM =~ /darwin/
-  link '.zshrc.local/macos.zsh', '~/.zshrc.local'
-  link '.tmux.conf', '~/.tmux.conf'
-  link '.bundle/config', '~/.bundle/config'
+  link '.emacs.d', '~/.emacs.d'
 end
+
+def link_special_files(platform)
+  case platform
+  when 'macos'
+    link '.tmux.conf', '~/.tmux.conf'
+    link '.zshrc.local/macos.zsh', '~/.zshrc.local'
+    link '.bundle/macos.config', '~/.bundle/config'
+  end
+end
+
+platform = nil
+
+opt = OptionParser.new
+opt.on('--platform=[PLATFORM]') { |v| platform = v }
+
+opt.parse ARGV
+
+link_base_files
+link_special_files platform
