@@ -40,9 +40,9 @@ def link_special_files(platform)
   return unless platform
 
   link '.tmux.conf', '~/.tmux.conf'
+  link '.bundle/config', '~/.bundle/config'
 
   link '.zshrc.local', '~/.zshrc.local', platform
-  link '.bundle/config', '~/.bundle/config', platform
 end
 
 platform = nil
