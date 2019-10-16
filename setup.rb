@@ -8,10 +8,9 @@ require 'optparse'
 
 include FileUtils::Verbose
 
-def link(src, dst, platform = nil)
+def link(src, dst)
   puts "# #{ src } => #{ dst }"
 
-  src = "platform/#{ platform }/#{ src }" if platform
   src = Pathname.new(src).expand_path
 
   dst = Pathname.new(dst).expand_path
@@ -36,13 +35,13 @@ def link_base_files
   link '.emacs.d', '~/.emacs.d'
 end
 
-def link_special_files(platform)
+def link_platform_files(platform)
   return unless platform
 
   link '.tmux.conf', '~/.tmux.conf'
   link '.bundle/config', '~/.bundle/config'
 
-  link '.zshrc.local', '~/.zshrc.local', platform
+  link ".zshrc.local/#{ platform }.zsh", '~/.zshrc.local'
 end
 
 platform = nil
@@ -53,4 +52,4 @@ opt.on('--platform=[PLATFORM]') { |v| platform = v }
 opt.parse ARGV
 
 link_base_files
-link_special_files platform
+link_platform_files platform
