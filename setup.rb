@@ -43,6 +43,7 @@ def link_special_files(platform)
   when 'wsl'
     link '.tmux.conf', '~/.tmux.conf'
     link '.zshrc.local/wsl.zsh', '~/.zshrc.local'
+    link '.zshenv.wsl', '~/.zshenv'
     link '.bundle/wsl.config', '~/.bundle/config'
   end
 end
