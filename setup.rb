@@ -24,6 +24,7 @@ def link(src, dst, platform = nil)
 end
 
 def link_base_files
+  link '.zshenv', '~/.zshenv'
   link '.zshrc', '~/.zshrc'
 
   link '.gemrc', '~/.gemrc'
@@ -41,8 +42,6 @@ def link_special_files(platform)
   link '.tmux.conf', '~/.tmux.conf', platform
   link '.zshrc.local', '~/.zshrc.local', platform
   link '.bundle/config', '~/.bundle/config', platform
-
-  link '.zshenv', '~/.zshenv', platform if platform == 'wsl'
 end
 
 platform = nil
