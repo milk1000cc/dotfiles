@@ -8,9 +8,10 @@ require 'optparse'
 
 include FileUtils::Verbose
 
-def link(src, dst)
+def link(src, dst, platform = nil)
   puts "# #{ src } => #{ dst }"
 
+  src = "platform/#{ platform }/#{ src }" if platform
   src = Pathname.new(src).expand_path
 
   dst = Pathname.new(dst).expand_path
@@ -35,17 +36,13 @@ def link_base_files
 end
 
 def link_special_files(platform)
-  case platform
-  when 'macos'
-    link '.tmux.conf', '~/.tmux.conf'
-    link '.zshrc.local/macos.zsh', '~/.zshrc.local'
-    link '.bundle/macos.config', '~/.bundle/config'
-  when 'wsl'
-    link '.tmux.conf', '~/.tmux.conf'
-    link '.zshrc.local/wsl.zsh', '~/.zshrc.local'
-    link '.zshenv.wsl', '~/.zshenv'
-    link '.bundle/wsl.config', '~/.bundle/config'
-  end
+  return unless platform
+
+  link '.tmux.conf', '~/.tmux.conf', platform
+  link '.zshrc.local', '~/.zshrc.local', platform
+  link '.bundle/config', '~/.bundle/config', platform
+
+  link '.zshenv', '~/.zshenv', platform if platform == 'wsl'
 end
 
 platform = nil
