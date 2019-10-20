@@ -5,4 +5,6 @@ path=(
     /mnt/c/WINDOWS
 )
 
+HISTFILE=~/Dropbox/zsh_history
+
 [[ -z $TMUX ]] && tmux
