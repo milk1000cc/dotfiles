@@ -69,6 +69,7 @@ alias r='rails'
 alias e='emacs -nw'
 alias vi='vim'
 alias be='bundle exec'
+alias fs='foreman start -f Procfile.dev'
 
 +vi-git-stash-count() {
     local cnt
