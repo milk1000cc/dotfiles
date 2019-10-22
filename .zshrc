@@ -71,6 +71,8 @@ alias vi='vim'
 alias be='bundle exec'
 alias fs='foreman start -f Procfile.dev'
 
+(( !$+commands[gzcat] )) && alias gzcat='zcat'
+
 +vi-git-stash-count() {
     local cnt
 
