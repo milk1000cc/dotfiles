@@ -39,7 +39,8 @@ def link_platform_files(platform)
   return unless platform
 
   link '.tmux.conf', '~/.tmux.conf'
-  link '.bundle/config', '~/.bundle/config'
+
+  link ".bundle/#{ platform }.config", '~/.bundle/config'
 
   link ".zshrc.local/#{ platform }.zsh", '~/.zshrc.local'
 end
