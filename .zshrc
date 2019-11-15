@@ -69,7 +69,6 @@ alias r='rails'
 alias e='emacs -nw'
 alias vi='vim'
 alias be='bundle exec'
-alias fs='foreman start -f Procfile.dev'
 
 (( !$+commands[gzcat] )) && alias gzcat='zcat'
 
