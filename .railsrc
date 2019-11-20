@@ -5,3 +5,5 @@
 --skip-action-cable
 --skip-turbolinks
 --skip-test
+
+--webpack=vue
