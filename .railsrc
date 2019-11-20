@@ -1,6 +1,7 @@
---database mysql
+--database=mysql
 
---skip-javascript
---skip-test
+--skip-action-mailbox
+--skip-action-text
 --skip-action-cable
---skip-bundle
+--skip-turbolinks
+--skip-test
