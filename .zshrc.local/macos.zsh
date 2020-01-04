@@ -1,8 +1,5 @@
-BREW_PREFIX=/usr/local/opt
-
 path=(
-    $BREW_PREFIX/coreutils/libexec/gnubin
-    $BREW_PREFIX/node@10/bin
+    /usr/local/opt/coreutils/libexec/gnubin
     $path
 )
 
