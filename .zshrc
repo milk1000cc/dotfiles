@@ -84,11 +84,13 @@ alias be='bundle exec'
 
 NEWLINE=$'\n'
 
+show_remote_prompt=$SSH_CONNECTION
+
 _update_prompt() {
     local -a messages1 messages2
     local ruby_version hostname
 
-    if [[ -n $SSH_CONNECTION ]]; then
+    if [[ -n $show_remote_prompt ]]; then
         messages1+=( "%F{red}%BREMOTE%b%f" )
     fi
 
@@ -103,7 +105,7 @@ _update_prompt() {
         messages1+=( "%F{green}%B[${vcs_info_msg_0_}]%b%f" )
     fi
 
-    if [[ -n $SSH_CONNECTION ]]; then
+    if [[ -n $show_remote_prompt ]]; then
         hostname=$( hostname -f )
         messages2+=( "%F{red}%B%U%n@${hostname}$%u%b%f" )
     else
