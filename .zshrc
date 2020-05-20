@@ -69,6 +69,8 @@ alias r='rails'
 alias e='emacs -nw'
 alias vi='vim'
 alias be='bundle exec'
+alias pg_dump='pg_dump -Fc --no-acl --no-owner'
+alias pg_restore='pg_restore --clean --create --no-acl --no-owner -d postgres'
 
 (( !$+commands[gzcat] )) && alias gzcat='zcat'
 
