@@ -126,9 +126,9 @@ add-zsh-hook precmd vcs_info
 add-zsh-hook precmd _update_prompt
 add-zsh-hook chpwd _update_curdir
 
-(( $+commands[rbenv] )) && eval "$(rbenv init -)"
+(( $+commands[direnv] )) && eval "$(direnv hook zsh)"
 
-path=( ./bin $path )  # for rails projects
+(( $+commands[rbenv] )) && eval "$(rbenv init -)"
 
 [[ -f "$HOME/.zshrc.local" ]] && . "$HOME/.zshrc.local"
 
