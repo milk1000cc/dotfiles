@@ -126,6 +126,7 @@ add-zsh-hook precmd vcs_info
 add-zsh-hook precmd _update_prompt
 add-zsh-hook chpwd _update_curdir
 
+export DIRENV_LOG_FORMAT=""
 (( $+commands[direnv] )) && eval "$(direnv hook zsh)"
 
 (( $+commands[rbenv] )) && eval "$(rbenv init -)"
