@@ -18,4 +18,5 @@
              '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.god\\'" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.cap\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.jb\\'" . enh-ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
