@@ -21,6 +21,7 @@
 (depends-on "sass-mode")
 (depends-on "session")
 (depends-on "slim-mode")
+(depends-on "systemd")
 (depends-on "vue-mode")
 (depends-on "web-mode")
 (depends-on "wgrep")
