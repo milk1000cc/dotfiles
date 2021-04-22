@@ -52,6 +52,9 @@
 ;; 対応する括弧をハイライト表示
 (show-paren-mode t)
 
+;; 更新されたファイルを自動的に読み込み直す
+(global-auto-revert-mode t)
+
 ;; 全角スペース、タブ等の様々な空白文字をハイライト
 ;; Meadow/memoからもらってきたと思われる。
 (defface my-face-b-1 '((t (:background "medium aquamarine"))) nil)
