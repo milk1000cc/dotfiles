@@ -9,6 +9,8 @@
 
 (add-to-load-path-recursively "public_repos")
 
+(setq warning-suppress-log-types '((package reinitialization)))
+
 (require 'package)
 (package-initialize)
 
