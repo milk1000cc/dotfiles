@@ -4,6 +4,7 @@
 
 # (N-/): 存在しないときは追加しない (https://qiita.com/mollifier/items/42ae46ff4140251290a7)
 fpath=(
+    $HOME/.zsh/completions(N-/)
     /usr/local/share/zsh-completions(N-/)
     $fpath
 )
