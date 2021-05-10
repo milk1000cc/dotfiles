@@ -66,6 +66,7 @@ setopt MAGIC_EQUAL_SUBST  # ./configure --prefix=xxx などの xxx を補完
 alias ls='ls -F --color'
 alias ll='ls -l'
 alias g='git'
+alias d='docker'
 alias r='rails'
 alias e='emacs -nw'
 alias vi='vim'
