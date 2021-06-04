@@ -9,12 +9,6 @@ fpath=(
 )
 
 path=(
-    $HOME/.rbenv/bin(N-/)
-    $HOME/.yarn/bin(N-/)
-    $HOME/.cask/bin(N-/)
-
-    /usr/local/opt/coreutils/libexec/gnubin(N-/)
-
     /usr/local/sbin
     /usr/local/bin
 
@@ -33,7 +27,6 @@ export LANG='ja_JP.UTF-8'
 export EDITOR='emacs -nw'
 export LS_COLORS='di=01;36:ln=01;35:so=01;34:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
 export DIRENV_LOG_FORMAT=""
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 
 bindkey '^r' history-incremental-pattern-search-backward  # glob (*) 検索ができるように
 
@@ -45,7 +38,6 @@ zstyle ':zle:*' word-style unspecified  # word-chars を区切り文字として
 
 # 補完
 autoload -Uz compinit
-compinit -u  # セキュリティ警告を出さない
 zstyle ':completion:*' list-colors $LS_COLORS
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # 大文字・小文字を区別しない
 
@@ -89,9 +81,9 @@ alias pg_restore='pg_restore --clean --create --no-acl --no-owner -d postgres'
     fi
 }
 
-NEWLINE=$'\n'
-
 _update_prompt() {
+    local NEWLINE=$'\n'
+
     local -a messages1 messages2
     local ruby_version
 
@@ -118,11 +110,44 @@ add-zsh-hook precmd vcs_info
 add-zsh-hook precmd _update_prompt
 add-zsh-hook chpwd _update_curdir
 
+init_homebrew() {
+    local OS="$(uname)"
+    local UNAME_MACHINE="$(/usr/bin/uname -m)"
+
+    if [[ "$OS" == "Darwin" ]]; then
+        if [[ "$UNAME_MACHINE" == "arm64" ]]; then
+            eval $(/opt/homebrew/bin/brew shellenv)
+        else
+            eval $(/usr/local/bin/brew shellenv)
+        fi
+    fi
+
+    if [[ -n $HOMEBREW_PREFIX ]]; then
+        fpath=(
+            $fpath
+            $HOMEBREW_PREFIX/share/zsh/site-functions
+        )
+
+        compinit -u
+
+        path=(
+            $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
+            $path
+        )
+
+        export RUBY_CONFIGURE_OPTS="--with-openssl-dir=${HOMEBREW_PREFIX}/opt/openssl@1.1"
+
+        source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+        source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+    fi
+}
+
+init_homebrew
+
+[[ -z $HOMEBREW_PREFIX ]] && compinit -u
+
 eval "$(direnv hook zsh)"
 eval "$(rbenv init -)"
-
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 [[ -f "$HOME/.curdir" ]] && cd `cat $HOME/.curdir`
 
