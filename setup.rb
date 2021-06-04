@@ -4,7 +4,6 @@
 
 require 'pathname'
 require 'fileutils'
-require 'optparse'
 
 include FileUtils::Verbose
 
@@ -22,35 +21,15 @@ def link(src, dst)
   puts
 end
 
-def link_base_files
-  link '.zshenv', '~/.zshenv'
-  link '.zshrc', '~/.zshrc'
+link '.zshrc', '~/.zshrc'
 
-  link '.gemrc', '~/.gemrc'
-  link '.railsrc', '~/.railsrc'
+link '.gemrc', '~/.gemrc'
+link '.railsrc', '~/.railsrc'
+link ".bundle/config", '~/.bundle/config'
 
-  link 'git/.gitconfig', '~/.gitconfig'
-  link 'git/.gitignore', '~/.gitignore'
+link 'git/.gitconfig', '~/.gitconfig'
+link 'git/.gitignore', '~/.gitignore'
 
-  link '.emacs.d', '~/.emacs.d'
-end
+link '.emacs.d', '~/.emacs.d'
 
-def link_platform_files(platform)
-  return unless platform
-
-  link '.tmux.conf', '~/.tmux.conf'
-
-  link ".bundle/#{ platform }.config", '~/.bundle/config'
-
-  link ".zshrc.local/#{ platform }.zsh", '~/.zshrc.local'
-end
-
-platform = nil
-
-opt = OptionParser.new
-opt.on('--platform=[PLATFORM]') { |v| platform = v }
-
-opt.parse ARGV
-
-link_base_files
-link_platform_files platform
+link '.tmux.conf', '~/.tmux.conf'

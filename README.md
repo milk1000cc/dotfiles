@@ -2,5 +2,5 @@
 
 ```sh
 git clone https://github.com/milk1000cc/dotfiles.git --recursive
-ruby setup.rb --platform=[PLATFORM]
+ruby setup.rb
 ```

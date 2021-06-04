@@ -5,7 +5,6 @@
 # (N-/): 存在しないときは追加しない (https://qiita.com/mollifier/items/42ae46ff4140251290a7)
 fpath=(
     $HOME/.zsh/completions(N-/)
-    /usr/local/share/zsh-completions(N-/)
     $fpath
 )
 
@@ -13,6 +12,8 @@ path=(
     $HOME/.rbenv/bin(N-/)
     $HOME/.yarn/bin(N-/)
     $HOME/.cask/bin(N-/)
+
+    /usr/local/opt/coreutils/libexec/gnubin(N-/)
 
     /usr/local/sbin
     /usr/local/bin
@@ -23,7 +24,7 @@ path=(
     /sbin
 )
 
-HISTFILE=~/.zsh_history
+HISTFILE=~/Dropbox/zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
@@ -31,6 +32,8 @@ export TERM='xterm-256color'
 export LANG='ja_JP.UTF-8'
 export EDITOR='emacs -nw'
 export LS_COLORS='di=01;36:ln=01;35:so=01;34:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
+export DIRENV_LOG_FORMAT=""
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 
 bindkey '^r' history-incremental-pattern-search-backward  # glob (*) 検索ができるように
 
@@ -72,10 +75,9 @@ alias r='rails'
 alias e='emacs -nw'
 alias vi='vim'
 alias be='bundle exec'
+alias diff='colordiff -ur'
 alias pg_dump='pg_dump -Fc --no-acl --no-owner'
 alias pg_restore='pg_restore --clean --create --no-acl --no-owner -d postgres'
-
-(( !$+commands[gzcat] )) && alias gzcat='zcat'
 
 +vi-git-stash-count() {
     local cnt
@@ -89,33 +91,20 @@ alias pg_restore='pg_restore --clean --create --no-acl --no-owner -d postgres'
 
 NEWLINE=$'\n'
 
-show_remote_prompt=$SSH_CONNECTION
-
 _update_prompt() {
     local -a messages1 messages2
-    local ruby_version hostname
-
-    if [[ -n $show_remote_prompt ]]; then
-        messages1+=( "%F{red}%BREMOTE%b%f" )
-    fi
+    local ruby_version
 
     messages1+=( "%F{yellow}%B%~%b%f" )
 
-    if (( $+commands[rbenv] )); then
-        ruby_version=$( rbenv version-name )
-        messages1+=( "%F{magenta}%B%U(${ruby_version})%u%b%f" )
-    fi
+    ruby_version=$( rbenv version-name )
+    messages1+=( "%F{magenta}%B%U(${ruby_version})%u%b%f" )
 
     if [[ -n $vcs_info_msg_0_ ]]; then
         messages1+=( "%F{green}%B[${vcs_info_msg_0_}]%b%f" )
     fi
 
-    if [[ -n $show_remote_prompt ]]; then
-        hostname=$( hostname -f )
-        messages2+=( "%F{red}%B%U%n@${hostname}$%u%b%f" )
-    else
-        messages2+=( "%F{blue}%B%n@%m$%b%f" )
-    fi
+    messages2+=( "%F{blue}%B%n@%m$%b%f" )
 
     PROMPT="${(j: :)messages1}${NEWLINE}${(j: :)messages2} "
 }
@@ -129,11 +118,12 @@ add-zsh-hook precmd vcs_info
 add-zsh-hook precmd _update_prompt
 add-zsh-hook chpwd _update_curdir
 
-export DIRENV_LOG_FORMAT=""
-(( $+commands[direnv] )) && eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
+eval "$(rbenv init -)"
 
-(( $+commands[rbenv] )) && eval "$(rbenv init -)"
-
-[[ -f "$HOME/.zshrc.local" ]] && . "$HOME/.zshrc.local"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 [[ -f "$HOME/.curdir" ]] && cd `cat $HOME/.curdir`
+
+[[ -z $TMUX ]] && tmux
