@@ -2,12 +2,6 @@
 # WEB+DB PRESS Vol.83 (https://gihyo.jp/magazine/wdpress/archive/2014/vol83)
 # https://qiita.com/mollifier/items/8d5a627d773758dd8078
 
-# (N-/): 存在しないときは追加しない (https://qiita.com/mollifier/items/42ae46ff4140251290a7)
-fpath=(
-    $HOME/.zsh/completions(N-/)
-    $fpath
-)
-
 path=(
     /usr/local/sbin
     /usr/local/bin
@@ -124,8 +118,8 @@ init_homebrew() {
 
     if [[ -n $HOMEBREW_PREFIX ]]; then
         fpath=(
-            $fpath
             $HOMEBREW_PREFIX/share/zsh/site-functions
+            $fpath
         )
 
         compinit -u
