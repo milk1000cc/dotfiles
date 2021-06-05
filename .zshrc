@@ -105,10 +105,9 @@ add-zsh-hook chpwd _update_curdir
 
 init_homebrew() {
     local OS="$(uname)"
-    local UNAME_MACHINE="$(/usr/bin/uname -m)"
 
     if [[ "$OS" == "Darwin" ]]; then
-        if [[ "$UNAME_MACHINE" == "arm64" ]]; then
+        if [[ -d "/opt/homebrew" ]]; then
             eval $(/opt/homebrew/bin/brew shellenv)
         else
             eval $(/usr/local/bin/brew shellenv)
