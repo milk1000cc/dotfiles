@@ -122,7 +122,7 @@ init_homebrew() {
             $fpath
         )
 
-        compinit -u
+        compinit
 
         path=(
             $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
@@ -138,7 +138,7 @@ init_homebrew() {
 
 init_homebrew
 
-[[ -z $HOMEBREW_PREFIX ]] && compinit -u
+[[ -z $HOMEBREW_PREFIX ]] && compinit
 
 eval "$(direnv hook zsh)"
 eval "$(rbenv init -)"
