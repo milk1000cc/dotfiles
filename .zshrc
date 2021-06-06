@@ -141,6 +141,6 @@ init_homebrew
 eval "$(direnv hook zsh)"
 eval "$(rbenv init -)"
 
-[[ -f "$HOME/.curdir" ]] && cd `cat $HOME/.curdir`
-
 [[ -z $TMUX ]] && tmux
+
+[[ -f "$HOME/.curdir" ]] && cd `cat $HOME/.curdir`
