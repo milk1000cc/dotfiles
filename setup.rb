@@ -21,6 +21,7 @@ def link(src, dst)
   puts
 end
 
+link '.zprofile', '~/.zprofile'
 link '.zshrc', '~/.zshrc'
 
 link '.gemrc', '~/.gemrc'

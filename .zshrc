@@ -2,15 +2,6 @@
 # WEB+DB PRESS Vol.83 (https://gihyo.jp/magazine/wdpress/archive/2014/vol83)
 # https://qiita.com/mollifier/items/8d5a627d773758dd8078
 
-path=(
-    /usr/local/sbin
-    /usr/local/bin
-    /usr/bin
-    /bin
-    /usr/sbin
-    /sbin
-)
-
 HISTFILE=~/Dropbox/zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -104,16 +95,6 @@ add-zsh-hook precmd _update_prompt
 add-zsh-hook chpwd _update_curdir
 
 init_homebrew() {
-    local OS="$(uname)"
-
-    if [[ "$OS" == "Darwin" ]]; then
-        if [[ -d "/opt/homebrew" ]]; then
-            eval $(/opt/homebrew/bin/brew shellenv)
-        else
-            eval $(/usr/local/bin/brew shellenv)
-        fi
-    fi
-
     if [[ -n $HOMEBREW_PREFIX ]]; then
         fpath=(
             $HOMEBREW_PREFIX/share/zsh/site-functions
