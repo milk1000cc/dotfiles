@@ -9,6 +9,7 @@
 	st = status
         df = diff
         dfc = diff --cached -M
+	cl = clean -d --interactive
 [github]
 	user = milk1000cc
 [core]
