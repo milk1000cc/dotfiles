@@ -2,13 +2,13 @@
 	name = milk1000cc
 	email = info@milk1000.cc
 [color]
-        ui = auto
+	ui = auto
 [alias]
 	co = checkout
 	ci = commit
 	st = status
-        df = diff
-        dfc = diff --cached -M
+	df = diff
+	dfc = diff --cached -M
 	cl = clean -d --interactive
 [github]
 	user = milk1000cc
