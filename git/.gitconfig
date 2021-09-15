@@ -8,7 +8,7 @@
 	ci = commit
 	st = status
 	df = diff
-	dfc = diff --cached -M
+	dfc = diff --cached
 	cl = clean -d --interactive
 [github]
 	user = milk1000cc
