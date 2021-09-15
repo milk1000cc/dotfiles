@@ -13,7 +13,6 @@
 [github]
 	user = milk1000cc
 [core]
-	autocrlf = input
 	excludesfile = ~/.gitignore
 [pager]
 	log = diff-highlight | less
