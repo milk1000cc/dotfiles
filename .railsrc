@@ -5,7 +5,5 @@
 --skip-action-text
 --skip-active-storage
 --skip-action-cable
---skip-turbolinks
+--skip-jbuilder
 --skip-test
-
---webpack=vue
