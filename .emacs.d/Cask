@@ -18,6 +18,7 @@
 (depends-on "projectile")
 (depends-on "pug-mode")
 (depends-on "quickrun")
+(depends-on "rspec-mode")
 (depends-on "sass-mode")
 (depends-on "session")
 (depends-on "slim-mode")
