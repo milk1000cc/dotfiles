@@ -30,6 +30,7 @@ link ".bundle/config", '~/.bundle/config'
 
 link 'git/.gitconfig', '~/.gitconfig'
 link 'git/.gitignore', '~/.gitignore'
+link 'git/.gitmessage', '~/.gitmessage'
 
 link '.emacs.d', '~/.emacs.d'
 
