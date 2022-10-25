@@ -24,6 +24,7 @@ end
 link '.zprofile', '~/.zprofile'
 link '.zshrc', '~/.zshrc'
 
+link '.irbrc', '~/.irbrc'
 link '.gemrc', '~/.gemrc'
 link '.railsrc', '~/.railsrc'
 link ".bundle/config", '~/.bundle/config'
