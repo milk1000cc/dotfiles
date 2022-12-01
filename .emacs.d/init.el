@@ -28,6 +28,7 @@
 (setq make-backup-files nil)
 
 ;; 自動保存しない
+(setq auto-save-list-file-prefix nil)
 (setq auto-save-default nil)
 
 ;; ロックファイルを作成しない
