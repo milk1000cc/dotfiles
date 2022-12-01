@@ -139,6 +139,7 @@
   (setq rg-show-columns t)
   (setq rg-hide-command nil)
   (setq rg-show-header nil)
+  (setq transient-save-history nil)
   :custom-face
   (rg-info-face ((t :underline t)))
   :config
