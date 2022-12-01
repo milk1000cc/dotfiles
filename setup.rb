@@ -7,7 +7,7 @@ require 'fileutils'
 
 include FileUtils::Verbose
 
-def link(src, dst)
+def link(src, dst = (ENV['XDG_CONFIG_HOME'] || '~/.config'))
   puts "# #{ src } => #{ dst }"
 
   src = Pathname.new(src).expand_path
@@ -21,18 +21,14 @@ def link(src, dst)
   puts
 end
 
-link '.zprofile', '~/.zprofile'
-link '.zshrc', '~/.zshrc'
+link '.zshenv', '~/.zshenv'
+link 'zsh'
 
 link '.irbrc', '~/.irbrc'
 link '.gemrc', '~/.gemrc'
-link '.railsrc', '~/.railsrc'
+link 'rails'
 link ".bundle/config", '~/.bundle/config'
 
-link 'git/.gitconfig', '~/.gitconfig'
-link 'git/.gitignore', '~/.gitignore'
-link 'git/.gitmessage', '~/.gitmessage'
-
-link '.emacs.d', '~/.emacs.d'
-
-link '.tmux.conf', '~/.tmux.conf'
+link 'git'
+link 'emacs'
+link 'tmux'

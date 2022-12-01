@@ -1,5 +1,7 @@
-/.emacs.d/history
-/.emacs.d/recentf
-/.emacs.d/straight/*
-!/.emacs.d/straight/
-!/.emacs.d/straight/versions/
+/zsh/.zcompdump
+
+/emacs/history
+/emacs/recentf
+/emacs/straight/*
+!/emacs/straight/
+!/emacs/straight/versions/

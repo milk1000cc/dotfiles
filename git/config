@@ -12,8 +12,6 @@
 	cl = clean -d --interactive
 [github]
 	user = milk1000cc
-[core]
-	excludesfile = ~/.gitignore
 [pager]
 	log = diff-highlight | less
 	show = diff-highlight | less
@@ -29,4 +27,4 @@
 [init]
 	defaultBranch = main
 [commit]
-	template = ~/.gitmessage
+	template = ~/.config/git/message
