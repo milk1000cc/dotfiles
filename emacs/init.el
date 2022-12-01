@@ -150,7 +150,7 @@
   (rg-define-search my/rg-literal
     :format literal
     :files "everything"
-    :flags( "--no-ignore")
+    :flags ("--no-ignore")
     :dir current)
   (rg-define-search my/rg-regexp
     :files "everything"
