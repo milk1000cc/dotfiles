@@ -1,7 +1,5 @@
-/.emacs.d/*
-!/.emacs.d/early-init.el
-!/.emacs.d/init.el
-
+/.emacs.d/history
+/.emacs.d/recentf
 /.emacs.d/straight/*
 !/.emacs.d/straight/
 !/.emacs.d/straight/versions/
