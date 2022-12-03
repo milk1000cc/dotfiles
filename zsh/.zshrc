@@ -6,11 +6,11 @@ HISTFILE=~/Dropbox/zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-MY_EMACS='env COLORTERM=1 emacs -nw'  # https://syohex.hatenablog.com/entry/2022/11/14/002626
+EMACS_COMMAND='env COLORTERM=1 emacs -nw'  # https://syohex.hatenablog.com/entry/2022/11/14/002626
 
 export TERM='xterm-256color'
 export LANG='ja_JP.UTF-8'
-export EDITOR=$MY_EMACS
+export EDITOR=$EMACS_COMMAND
 export LS_COLORS='di=01;36:ln=01;35:so=01;34:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
 export DIRENV_LOG_FORMAT=""
 
@@ -50,7 +50,7 @@ alias g='git'
 alias d='docker'
 alias dc='docker-compose'
 alias r='./bin/rails'
-alias e=$MY_EMACS
+alias e=$EMACS_COMMAND
 alias vi='vim'
 alias be='bundle exec'
 alias diff='colordiff -ur'
