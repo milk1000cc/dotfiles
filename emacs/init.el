@@ -158,9 +158,11 @@
   (rg-define-search my/rg-project-literal
     :format literal
     :files "everything"
+    :flags ("-g '!.git/'")  ; https://github.com/BurntSushi/ripgrep/discussions/1578
     :dir project)
   (rg-define-search my/rg-project-regexp
     :files "everything"
+    :flags ("-g '!.git/'")
     :dir project)
   (defalias 'rg 'my/rg-literal)
   (defalias 'rg-regexp 'my/rg-regexp)
