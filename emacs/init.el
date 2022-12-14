@@ -208,7 +208,7 @@
 
 ;; js2-mode
 (use-package js2-mode
-  :mode "\\.js\\'" "\\.gs\\'"
+  :mode "\\.js\\'" "\\.json\\'" "\\.gs\\'"
   :init
   (setq js2-strict-missing-semi-warning nil)
   (setq js2-global-externs '("URL"))
