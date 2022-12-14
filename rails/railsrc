@@ -7,3 +7,6 @@
 --skip-action-cable
 --skip-jbuilder
 --skip-test
+
+--javascript=esbuild
+--css=sass
