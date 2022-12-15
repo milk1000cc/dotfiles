@@ -1,3 +1,5 @@
+--template=~/.config/rails/template.rb
+
 --database=postgresql
 
 --skip-action-mailer
