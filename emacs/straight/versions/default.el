@@ -17,6 +17,8 @@
  ("helm-projectile" . "5813f7286533990783546c9c39c184faa034d1f1")
  ("inf-ruby" . "c6192178941b46754fdb50405f344481c8ef2fd1")
  ("js2-mode" . "a297ec2c2d9aa50ddc6c06959bb5a054e17b692a")
+ ("json-mode" . "eedb4560034f795a7950fa07016bd4347c368873")
+ ("json-snatcher" . "b28d1c0670636da6db508d03872d96ffddbc10f2")
  ("jump.el" . "55caa66a7cc6e0b1a76143fd40eff38416928941")
  ("lua-mode" . "3e783c93aa8a3d3ca985686438aa8d140cbddae6")
  ("markdown-mode" . "e3937a7ebfbc6a58a03682a40987d90db9cc74a1")

@@ -208,12 +208,15 @@
 
 ;; js2-mode
 (use-package js2-mode
-  :mode "\\.js\\'" "\\.json\\'" "\\.gs\\'"
+  :mode "\\.js\\'" "\\.gs\\'"
   :init
   (setq js2-strict-missing-semi-warning nil)
-  (setq js2-global-externs '("URL"))
-  :config
-  (setq js2-basic-offset 2))
+  (setq js2-global-externs '("URL")))
+
+;; json-mode
+(use-package json-mode
+  :init
+  (setq js-indent-level 2))
 
 ;; dotenv-mode
 (use-package dotenv-mode
