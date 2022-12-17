@@ -78,6 +78,9 @@
 (setq history-delete-duplicates t)
 (savehist-mode 1)
 
+;; デフォルトのメジャーモードを text-mode に
+(setq-default major-mode 'text-mode)
+
 ;; フェイス
 (custom-set-faces
  '(default ((t (:background "#111" :foreground "#ccc"))))
@@ -231,11 +234,6 @@
 (use-package mmm-mode
   :custom-face
   (mmm-default-submode-face ((t (:background nil)))))
-
-;; text-mode
-(use-package text-mode
-  :straight nil
-  :mode "COMMIT_EDITMSG\\'")
 
 ;; projectile
 (use-package projectile
