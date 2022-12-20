@@ -1,5 +1,1 @@
-file '.envrc', <<~CODE
-  export PATH=./bin:$PATH
-
-  dotenv
-CODE
+file '.envrc', %(export PATH=./bin:$PATH\n)
