@@ -110,7 +110,7 @@ init_homebrew() {
             $path
         )
 
-        export RUBY_CONFIGURE_OPTS="--with-openssl-dir=${HOMEBREW_PREFIX}/opt/openssl@1.1"
+        export RUBY_CONFIGURE_OPTS="--with-openssl-dir=${HOMEBREW_PREFIX}/opt/openssl@3"
     fi
 }
 
