@@ -1,0 +1,6 @@
+web: unset PORT && bin/rails server
+browsersync: ruby -e "sleep 1 until File.exist?('tmp/pids/server.pid')" && yarn browser-sync start --config bs-config.js
+
+js: yarn build --watch
+sass: yarn build:sass --watch
+postcss: yarn build:postcss --watch

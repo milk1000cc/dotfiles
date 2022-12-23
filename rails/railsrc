@@ -1,4 +1,4 @@
---template=~/.config/rails/template.rb
+--template=~/.config/rails/template/template.rb
 
 --database=postgresql
 
