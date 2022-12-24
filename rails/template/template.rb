@@ -44,8 +44,16 @@ after_bundle do
 
   generate 'rspec:install'
 
+  remove_file 'spec/spec_helper.rb'
+  copy_file "#{ __dir__ }/spec/spec_helper.rb", 'spec/spec_helper.rb'
+
+  remove_file 'spec/rails_helper.rb'
+  copy_file "#{ __dir__ }/spec/rails_helper.rb", 'spec/rails_helper.rb'
+
   copy_file "#{ __dir__ }/spec/support/database_rewinder.rb", 'spec/support/database_rewinder.rb'
   copy_file "#{ __dir__ }/spec/support/factory_bot.rb", 'spec/support/factory_bot.rb'
+
+  copy_file "#{ __dir__ }/lib/tasks/factory_bot.rake", 'lib/tasks/factory_bot.rake'
 end
 
 after_bundle do
