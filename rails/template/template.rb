@@ -39,6 +39,8 @@ CODE
 copy_file "#{ __dir__ }/config/initializers/generators.rb", 'config/initializers/generators.rb'
 copy_file "#{ __dir__ }/config/initializers/locale.rb", 'config/initializers/locale.rb'
 
+copy_file "#{ __dir__ }/.github/workflows/ci.yml", '.github/workflows/ci.yml'
+
 after_bundle do
   run 'bundle binstubs rspec-core'
 
