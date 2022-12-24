@@ -54,6 +54,7 @@ after_bundle do
 
   run 'yarn add browser-sync --dev'
   copy_file "#{ __dir__ }/bs-config.js", 'bs-config.js'
+  copy_file "#{ __dir__ }/app/views/application/_browsersync.html.slim", 'app/views/application/_browsersync.html.slim'
 
   run 'yarn add postcss postcss-cli autoprefixer'
 
