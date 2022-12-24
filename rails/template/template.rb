@@ -36,6 +36,7 @@ append_to_file 'config/initializers/assets.rb', <<~CODE
   \nRails.application.config.assets.paths << Rails.root.join('node_modules')
 CODE
 
+copy_file "#{ __dir__ }/config/initializers/action_view.rb", 'config/initializers/action_view.rb'
 copy_file "#{ __dir__ }/config/initializers/generators.rb", 'config/initializers/generators.rb'
 copy_file "#{ __dir__ }/config/initializers/locale.rb", 'config/initializers/locale.rb'
 
