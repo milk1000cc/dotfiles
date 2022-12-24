@@ -22,6 +22,16 @@ gem_group :test do
 end
 
 environment %(config.time_zone = 'Tokyo')
+
+data = <<~CODE
+  config.hosts += [
+    '.test',
+    '.ngrok.io',
+    /[a-z0-9\-]+\.(\d+\.){4}nip\.io/
+  ]
+CODE
+environment data, env: :development
+
 environment 'config.active_job.queue_adapter = :test', env: :test
 
 {
