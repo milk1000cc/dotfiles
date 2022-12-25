@@ -27,7 +27,7 @@ data = <<~CODE
   config.hosts += [
     '.test',
     '.ngrok.io',
-    /[a-z0-9\-]+\.(\d+\.){4}nip\.io/
+    /[a-z0-9\\-]+\\.(\\d+\\.){4}nip\\.io/
   ]
 CODE
 environment data, env: :development
