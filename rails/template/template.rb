@@ -51,6 +51,10 @@ copy_file "#{ __dir__ }/config/initializers/generators.rb", 'config/initializers
 copy_file "#{ __dir__ }/config/initializers/locale.rb", 'config/initializers/locale.rb'
 
 after_bundle do
+  run 'bundle lock --add-platform x86_64-linux'
+end
+
+after_bundle do
   run 'bundle binstubs rspec-core'
 
   generate 'rspec:install'
