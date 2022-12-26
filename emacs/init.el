@@ -124,9 +124,9 @@
   (whitespace-line ((t (:background nil :foreground "brightred"))))
   :config
   (global-whitespace-mode 1)
-  (add-hook 'ruby-mode-hook
+  (add-hook 'enh-ruby-mode-hook
             (lambda ()
-              ;; ruby-mode では、長い列も強調
+              ;; enh-ruby-mode では、長い列も強調
               (setq-local whitespace-style '(face trailing tabs spaces lines-tail))))
   (add-hook 'text-mode-hook
             (lambda ()
@@ -203,11 +203,20 @@
   :config
   (xclip-mode 1))
 
-;; ruby-mode
-(use-package ruby-mode
-  :mode "Brewfile\\'" "\\.builder\\'"
+;; enh-ruby-mode
+(use-package enh-ruby-mode
+  :mode
+  "\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'"
+  "Brewfile\\'" "\\.builder\\'"
+  :interpreter "ruby"
   :init
-  (setq ruby-insert-encoding-magic-comment nil))
+  (setq enh-ruby-deep-indent-paren nil)
+  :custom-face
+  (enh-ruby-string-delimiter-face ((t (:foreground "red"))))
+  (enh-ruby-regexp-delimiter-face ((t (:foreground "red"))))
+  (enh-ruby-heredoc-delimiter-face ((t (:foreground "red"))))
+  (enh-ruby-op-face ((t (:foreground "#ccc"))))
+  (enh-ruby-regexp-face ((t (:foreground "red")))))
 
 ;; js2-mode
 (use-package js2-mode

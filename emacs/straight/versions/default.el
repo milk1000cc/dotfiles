@@ -10,6 +10,7 @@
  ("emacs-pug-mode" . "73f8c2f95eba695f701df20c8436f49abadebdc1")
  ("emacs-slim" . "3636d18ab1c8b316eea71c4732eb44743e2ded87")
  ("emacsmirror-mirror" . "cae49f7b22cae2e7250a005a3b35a347322315b2")
+ ("enhanced-ruby-mode" . "7e76d754e1632b4fc9a024fa393c3fc837bcc86b")
  ("f.el" . "d50dca48929575642912bb5bbb2585709ba38f82")
  ("gnu-elpa-mirror" . "a6d186560598da105925194fe80fe0b0bc533978")
  ("haml-mode" . "bf5b6c11b1206759d2b28af48765e04882dd1fc4")
