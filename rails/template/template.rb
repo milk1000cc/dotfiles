@@ -84,11 +84,11 @@ after_bundle do
   run %(npm pkg set scripts.build:css="yarn build:sass && yarn build:postcss")
 
   build_script = 'sass ./app/assets/stylesheets/application.sass:./app/assets/builds/application.sass.css ' +
-                 '--no-source-map --load-path=node_modules'
+    '--no-source-map --load-path=node_modules'
   run %(npm pkg set scripts.build:sass="#{ build_script }")
 
   build_script = 'postcss ./app/assets/builds/application.sass.css ' +
-                 '--use autoprefixer --no-map -o ./app/assets/builds/application.css'
+    '--use autoprefixer --no-map -o ./app/assets/builds/application.css'
   run %(npm pkg set scripts.build:postcss="#{ build_script }")
 
   remove_file 'Procfile.dev'
