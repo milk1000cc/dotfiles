@@ -247,7 +247,7 @@
   :config
   (defun my/rails-toggle-between-controller-and-view ()
     (interactive)
-    (if (string-match "app/controllers/.+\\.rb$" (buffer-file-name))
+    (if (string-match-p "app/controllers/.+\\.rb$" (buffer-file-name))
         (projectile-rails-find-current-view)
       (projectile-rails-find-current-controller))))
 
