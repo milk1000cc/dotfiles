@@ -131,7 +131,7 @@
   (add-hook 'text-mode-hook
             (lambda ()
               ;; コミットメッセージの編集画面を見やすく
-              (when (string-match "COMMIT_EDITMSG$" (buffer-file-name))
+              (when (and (buffer-file-name) (string-match-p "COMMIT_EDITMSG$" (buffer-file-name)))
                 (setq-local whitespace-style '(face trailing spaces))))))
 
 ;; rg
