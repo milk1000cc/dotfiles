@@ -97,8 +97,9 @@ after_bundle do
   run 'yarn add stylelint milk1000cc/stylelint-config-milk1000cc --dev'
   copy_file "#{ __dir__ }/.stylelintrc.json", '.stylelintrc.json'
 
-  run 'yarn add husky lint-staged --dev'
+  run 'yarn add husky lint-staged imagemin-lint-staged --dev'
   run %(npm pkg set scripts.prepare="husky install" && yarn run prepare)
   run %(yarn husky add .husky/pre-commit "yarn lint-staged")
   run %(npm pkg set "lint-staged[*.sass]"="stylelint")
+  run %(npm pkg set "lint-staged[*.{png,jpeg,jpg,gif,svg}]"="imagemin-lint-staged")
 end
