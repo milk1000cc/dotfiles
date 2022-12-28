@@ -222,8 +222,9 @@
 (use-package js2-mode
   :mode "\\.js\\'" "\\.gs\\'"
   :init
-  (setq js2-strict-missing-semi-warning nil)
-  (setq js2-global-externs '("URL")))
+  (setq js2-global-externs '("URL"))
+  (setq js2-include-node-externs t)
+  (setq js2-strict-missing-semi-warning nil))
 
 ;; json-mode
 (use-package json-mode
