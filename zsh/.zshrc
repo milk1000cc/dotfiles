@@ -2,7 +2,7 @@
 # WEB+DB PRESS Vol.83 (https://gihyo.jp/magazine/wdpress/archive/2014/vol83)
 # https://qiita.com/mollifier/items/8d5a627d773758dd8078
 
-HISTFILE=~/Dropbox/zsh_history
+HISTFILE=~/MyDrive/zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
