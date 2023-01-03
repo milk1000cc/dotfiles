@@ -11,6 +11,7 @@
  ("emacs-slim" . "3636d18ab1c8b316eea71c4732eb44743e2ded87")
  ("emacsmirror-mirror" . "5a014232b0553b429b01cdb3551a6692c1ee0903")
  ("enhanced-ruby-mode" . "7e76d754e1632b4fc9a024fa393c3fc837bcc86b")
+ ("eslintd-fix" . "3897d8a679a6e98e3f5054aaefe07f6b55f8f128")
  ("f.el" . "457cbc78f8cc8345edcf25951d9b36bbf72ca080")
  ("gnu-elpa-mirror" . "eb1199591ec3cb8a4d1f1a20bd14ca0e52eafdd0")
  ("haml-mode" . "bf5b6c11b1206759d2b28af48765e04882dd1fc4")

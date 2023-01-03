@@ -226,6 +226,10 @@
   (setq js2-include-node-externs t)
   (setq js2-strict-missing-semi-warning nil))
 
+;; eslintd-fix
+(use-package eslintd-fix
+  :hook js2-mode)
+
 ;; json-mode
 (use-package json-mode
   :init
