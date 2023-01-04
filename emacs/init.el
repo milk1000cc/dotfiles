@@ -235,6 +235,11 @@
   :init
   (setq js-indent-level 2))
 
+;; scss-mode
+(use-package scss-mode
+  :init
+  (setq css-indent-offset 2))
+
 ;; dotenv-mode
 (use-package dotenv-mode
   :mode "\\.envrc\\'" "\\.envrc\\.example\\'")

@@ -36,6 +36,7 @@
  ("rg.el" . "14d4c6a754d127c5cacd58fb66bb0992faff68e4")
  ("s.el" . "e957dcb0677da18b2bb60ad867db5df5c35b5616")
  ("sass-mode" . "247a0d4b509f10b28e4687cd8763492bca03599b")
+ ("scss-mode" . "cf58dbec5394280503eb5502938f3b5445d1b53d")
  ("ssass-mode" . "96f557887ad97a0066a60c54f92b7234b8407016")
  ("straight.el" . "3eca39dfc6797243ec7d1c6a7d45142407f73f88")
  ("systemd-mode" . "b6ae63a236605b1c5e1069f7d3afe06ae32a7bae")
