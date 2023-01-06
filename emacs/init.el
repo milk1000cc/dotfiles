@@ -254,23 +254,6 @@
   :custom-face
   (mmm-default-submode-face ((t (:background nil)))))
 
-;; flycheck
-(use-package flycheck
-  :hook js2-mode scss-mode
-  :straight (:fork (:repo "Fuco1/flycheck" :branch "fix/stylecheck-syntax-arg"))  ; https://github.com/flycheck/flycheck/pull/1944
-  :init
-  (setq flycheck-check-syntax-automatically '(save)))
-
-;; flycheck-status-emoji
-(use-package flycheck-status-emoji
-  :hook flycheck-mode)
-
-;; add-node-modules-path
-(use-package add-node-modules-path
-  :hook (flycheck-mode . add-node-modules-path)
-  :init
-  (setq add-node-modules-path-command "yarn bin"))
-
 ;; projectile
 (use-package projectile
   :bind ("C-c , t" . projectile-toggle-between-implementation-and-test)
