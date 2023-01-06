@@ -37,6 +37,7 @@
  ("rake" . "452ea0caca33376487103c64177c295ed2960cca")
  ("recentf-ext" . "450de5f8544ed6414e88d4924d7daa5caa55b7fe")
  ("rg.el" . "14d4c6a754d127c5cacd58fb66bb0992faff68e4")
+ ("rspec-mode" . "cd845c4bf9e991c97cdfe7bd3f4e51bc81ceac15")
  ("s.el" . "e957dcb0677da18b2bb60ad867db5df5c35b5616")
  ("sass-mode" . "247a0d4b509f10b28e4687cd8763492bca03599b")
  ("scss-mode" . "cf58dbec5394280503eb5502938f3b5445d1b53d")

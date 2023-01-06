@@ -268,12 +268,6 @@
   :custom-face
   (mmm-default-submode-face ((t (:background nil)))))
 
-;; projectile
-(use-package projectile
-  :bind ("C-c , t" . projectile-toggle-between-implementation-and-test)
-  :init
-  (setq projectile-create-missing-test-files t))
-
 ;; projectile-rails
 (use-package projectile-rails
   :bind ("C-c C-p" . my/rails-toggle-between-controller-and-view)
@@ -291,6 +285,7 @@
 (use-package nginx-mode)
 (use-package pug-mode)
 (use-package recentf-ext)
+(use-package rspec-mode)
 (use-package sass-mode)
 (use-package slim-mode)
 (use-package vue-mode)
