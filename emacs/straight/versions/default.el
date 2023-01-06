@@ -1,4 +1,5 @@
 (("Emacs-wgrep" . "f9687c28bbc2e84f87a479b6ce04407bb97cfb23")
+ ("company-mode" . "6884e3ad717419b4a64a5fab08c8cb9bd20a0b27")
  ("compat" . "7ca7d300d1d256f674f83932d2918d8e70cd28f6")
  ("dash.el" . "3df46d7d9fe74f52a661565888e4d31fd760f0df")
  ("dockerfile-mode" . "52c6c00da1d31c0b6c29c74335b3af63ed6bf06c")
