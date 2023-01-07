@@ -100,6 +100,15 @@ after_bundle do
   run %(npm pkg set scripts.build:postcss="#{ build_script }")
 end
 
+# sanitize.css, Font Awesome
+after_bundle do
+  run 'yarn add sanitize.css @fortawesome/fontawesome-free'
+
+  remove_file 'app/assets/config/manifest.js'
+  copy_file "#{ __dir__ }/app/assets/config/manifest.js", 'app/assets/config/manifest.js'
+  copy_file "#{ __dir__ }/app/views/application/_stylesheets.html.slim", 'app/views/application/_stylesheets.html.slim'
+end
+
 # husky + lint-staged
 after_bundle do
   run 'yarn add husky lint-staged --dev'
