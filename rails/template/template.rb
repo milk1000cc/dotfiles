@@ -23,7 +23,7 @@ end
 
 environment %(config.time_zone = 'Tokyo')
 
-data = <<~CODE
+data = <<-CODE
   config.hosts += [
     '.test',
     '.ngrok.io',
@@ -42,7 +42,7 @@ environment 'config.active_job.queue_adapter = :test', env: :test
   gsub_file 'config/environments/production.rb', from, to
 end
 
-append_to_file 'config/initializers/assets.rb', <<~CODE
+append_to_file 'config/initializers/assets.rb', <<-CODE
   \nRails.application.config.assets.paths << Rails.root.join('node_modules')
 CODE
 
@@ -71,14 +71,22 @@ after_bundle do
   copy_file "#{ __dir__ }/lib/tasks/factory_bot.rake", 'lib/tasks/factory_bot.rake'
 end
 
+# Change the name field in package.json to the project name
 after_bundle do
   app_name = File.basename(File.expand_path('.'))
   run %(npm pkg set name="#{ app_name }")
+end
 
+# Browsersync
+after_bundle do
   run 'yarn add browser-sync --dev'
+
   copy_file "#{ __dir__ }/bs-config.js", 'bs-config.js'
   copy_file "#{ __dir__ }/app/views/application/_browsersync.html.slim", 'app/views/application/_browsersync.html.slim'
+end
 
+# Sass + Autoprefixer
+after_bundle do
   run 'yarn add postcss postcss-cli autoprefixer'
 
   run %(npm pkg set scripts.build:css="yarn build:sass && yarn build:postcss")
@@ -90,16 +98,31 @@ after_bundle do
   build_script = 'postcss ./app/assets/builds/application.sass.css ' +
     '--use autoprefixer --no-map -o ./app/assets/builds/application.css'
   run %(npm pkg set scripts.build:postcss="#{ build_script }")
+end
 
-  remove_file 'Procfile.dev'
-  copy_file "#{ __dir__ }/Procfile.dev", 'Procfile.dev'
+# husky + lint-staged
+after_bundle do
+  run 'yarn add husky lint-staged --dev'
 
-  run 'yarn add stylelint milk1000cc/stylelint-config-milk1000cc --dev'
-  copy_file "#{ __dir__ }/.stylelintrc.json", '.stylelintrc.json'
-
-  run 'yarn add husky lint-staged imagemin-lint-staged --dev'
   run %(npm pkg set scripts.prepare="husky install" && yarn run prepare)
   run %(yarn husky add .husky/pre-commit "yarn lint-staged")
+end
+
+# Stylelint
+after_bundle do
+  run 'yarn add stylelint milk1000cc/stylelint-config-milk1000cc --dev'
   run %(npm pkg set "lint-staged[*.sass]"="stylelint")
+
+  copy_file "#{ __dir__ }/.stylelintrc.json", '.stylelintrc.json'
+end
+
+# imagemin-lint-staged
+after_bundle do
+  run 'yarn add imagemin-lint-staged --dev'
   run %(npm pkg set "lint-staged[*.{png,jpeg,jpg,gif,svg}]"="imagemin-lint-staged")
+end
+
+after_bundle do
+  remove_file 'Procfile.dev'
+  copy_file "#{ __dir__ }/Procfile.dev", 'Procfile.dev'
 end
