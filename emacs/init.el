@@ -249,10 +249,13 @@
   :init
   (setq js-indent-level 2))
 
-;; scss-mode
-(use-package scss-mode
-  :init
-  (setq css-indent-offset 2))
+;; sass-mode
+(use-package sass-mode
+  :mode "\\.sss\\'"
+  :config
+  (add-hook 'sass-mode-hook
+            (lambda ()
+              (setq-local comment-start "//"))))
 
 ;; dotenv-mode
 (use-package dotenv-mode
@@ -286,7 +289,6 @@
 (use-package pug-mode)
 (use-package recentf-ext)
 (use-package rspec-mode)
-(use-package sass-mode)
 (use-package slim-mode)
 (use-package vue-mode)
 (use-package yaml-mode)
