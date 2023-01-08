@@ -210,13 +210,6 @@
   :config
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-;; company
-(use-package company
-  :hook scss-mode
-  :init
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 2))
-
 ;; enh-ruby-mode
 (use-package enh-ruby-mode
   :mode
