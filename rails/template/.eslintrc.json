@@ -1,3 +1,9 @@
 {
-  "extends": "eslint-config-milk1000cc"
+  "extends": "eslint-config-milk1000cc",
+
+  "ignorePatterns": [
+    "/app/javascript/application.js",
+    "/app/javascript/controllers/application.js",
+    "/app/javascript/controllers/index.js"
+  ]
 }
