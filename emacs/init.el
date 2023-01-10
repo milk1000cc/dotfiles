@@ -233,15 +233,9 @@
   (setq js2-include-node-externs t)
   (setq js2-strict-missing-semi-warning nil))
 
-;; eslint-fix
-(use-package eslint-fix
-  :hook (js2-mode . eslint-fix-auto-mode))
-
-;; add-node-modules-path
-(use-package add-node-modules-path
-  :hook (js2-mode . add-node-modules-path)
-  :init
-  (setq add-node-modules-path-command "yarn bin"))
+;; eslintd-fix
+(use-package eslintd-fix
+  :hook js2-mode)
 
 ;; json-mode
 (use-package json-mode
