@@ -233,10 +233,6 @@
   (setq js2-include-node-externs t)
   (setq js2-strict-missing-semi-warning nil))
 
-;; eslintd-fix
-(use-package eslintd-fix
-  :hook js2-mode)
-
 ;; json-mode
 (use-package json-mode
   :init
@@ -273,6 +269,10 @@
     (if (string-match-p "app/controllers/.+\\.rb$" (buffer-file-name))
         (projectile-rails-find-current-view)
       (projectile-rails-find-current-controller))))
+
+;; eslintd-fix
+(use-package eslintd-fix
+  :hook js2-mode)
 
 (use-package dockerfile-mode)
 (use-package helm-xref)
