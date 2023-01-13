@@ -124,10 +124,11 @@
   (whitespace-line ((t (:background nil :foreground "brightred"))))
   :config
   (global-whitespace-mode 1)
-  (add-hook 'enh-ruby-mode-hook
-            (lambda ()
-              ;; enh-ruby-mode では、長い列も強調
-              (setq-local whitespace-style '(face trailing tabs spaces lines-tail))))
+  ;; enh-ruby-mode, js2-mode では、長い列も強調
+  (defun my/set-whitespace-style-including-lines-tail ()
+    (setq-local whitespace-style '(face trailing tabs spaces lines-tail)))
+  (add-hook 'enh-ruby-mode-hook 'my/set-whitespace-style-including-lines-tail)
+  (add-hook 'js2-mode-hook 'my/set-whitespace-style-including-lines-tail)
   (add-hook 'text-mode-hook
             (lambda ()
               ;; コミットメッセージの編集画面を見やすく
