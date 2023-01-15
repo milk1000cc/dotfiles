@@ -265,10 +265,21 @@
 (use-package projectile-rails
   :bind ("C-c C-p" . my/rails-toggle-between-controller-and-view)
   :config
+  (defun rails/ruby/current-method ()    ; https://github.com/dmexe/emacs-rails-reloaded/blob/master/rails-ruby.el#L31
+    (let (action
+          (re "^ *def +\\([^ (\n]+\\)"))
+      (save-excursion
+        (end-of-line)
+        (when (re-search-backward re nil t)
+          (setq action (buffer-substring-no-properties (match-beginning 1) (match-end 1)))))
+      action))
   (defun my/rails-toggle-between-controller-and-view ()
     (interactive)
     (if (string-match-p "app/controllers/.+\\.rb$" (buffer-file-name))
-        (projectile-rails-find-current-view)
+        (let ((current-method (rails/ruby/current-method)))
+          (projectile-rails-find-current-resource "app/views/"
+                                                  "^${plural}/\\(${current-method}\..+\\)$"
+                                                  'projectile-rails-find-current-view))
       (projectile-rails-find-current-controller))))
 
 ;; eslintd-fix
