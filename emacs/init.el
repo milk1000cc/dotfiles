@@ -258,7 +258,7 @@
 (use-package projectile-rails
   :bind ("C-c C-p" . my/rails-toggle-between-controller-and-view)
   :config
-  (defun rails/ruby/current-method ()    ; https://github.com/dmexe/emacs-rails-reloaded/blob/master/rails-ruby.el#L31
+  (defun rails/ruby/current-method ()  ; https://github.com/dmexe/emacs-rails-reloaded/blob/master/rails-ruby.el#L31
     (let (action
           (re "^ *def +\\([^ (\n]+\\)"))
       (save-excursion
