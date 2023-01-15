@@ -204,13 +204,6 @@
   :config
   (xclip-mode 1))
 
-;; dumb-jump
-(use-package dumb-jump
-  :init
-  (setq dumb-jump-force-searcher 'rg)
-  :config
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
-
 ;; enh-ruby-mode
 (use-package enh-ruby-mode
   :mode
@@ -287,7 +280,6 @@
   :hook js2-mode)
 
 (use-package dockerfile-mode)
-(use-package helm-xref)
 (use-package lua-mode)
 (use-package markdown-mode)
 (use-package nginx-mode)
