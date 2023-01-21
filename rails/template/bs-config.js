@@ -9,4 +9,4 @@ module.exports = {
   ghostMode: false,
   notify: false,
   injectChanges: false
-};
+}
