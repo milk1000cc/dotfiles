@@ -1,5 +1,4 @@
 js: yarn build --watch
-sass: yarn build:sass --watch
-postcss: yarn build:postcss --watch
+css: yarn build:css --watch
 
 browsersync: yarn browser-sync start --config bs-config.js

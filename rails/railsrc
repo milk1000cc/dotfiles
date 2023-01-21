@@ -11,4 +11,4 @@
 --skip-test
 
 --javascript=esbuild
---css=sass
+--css=postcss

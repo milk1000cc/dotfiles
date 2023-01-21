@@ -85,19 +85,15 @@ after_bundle do
   copy_file "#{ __dir__ }/app/views/application/_browsersync.html.slim", 'app/views/application/_browsersync.html.slim'
 end
 
-# Sass + Autoprefixer
+# SugarSS
 after_bundle do
-  run 'yarn add postcss postcss-cli autoprefixer'
+  run 'yarn remove postcss-nesting'
 
-  run %(npm pkg set scripts.build:css="yarn build:sass && yarn build:postcss")
+  run 'yarn add sugarss postcss-simple-vars postcss-nested postcss-mixins ' +
+    'postcss-import postcss-import-ext-glob postcss-discard-comments'
 
-  build_script = 'sass ./app/assets/stylesheets/application.sass:./app/assets/builds/application.sass.css ' +
-    '--no-source-map --load-path=node_modules'
-  run %(npm pkg set scripts.build:sass="#{ build_script }")
-
-  build_script = 'postcss ./app/assets/builds/application.sass.css ' +
-    '--use autoprefixer --no-map -o ./app/assets/builds/application.css'
-  run %(npm pkg set scripts.build:postcss="#{ build_script }")
+  remove_file 'postcss.config.js'
+  copy_file "#{ __dir__ }/postcss.config.js", 'postcss.config.js'
 end
 
 # sanitize.css, Font Awesome
@@ -120,7 +116,7 @@ end
 # Stylelint
 after_bundle do
   run 'yarn add stylelint milk1000cc/stylelint-config-milk1000cc'
-  run %(npm pkg set "lint-staged[*.sass]"="stylelint")
+  run %(npm pkg set "lint-staged[*.sss]"="stylelint")
 
   copy_file "#{ __dir__ }/.stylelintrc.json", '.stylelintrc.json'
 end
