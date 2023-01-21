@@ -79,7 +79,7 @@ end
 
 # Browsersync
 after_bundle do
-  run 'yarn add browser-sync --dev'
+  run 'yarn add browser-sync'
 
   copy_file "#{ __dir__ }/bs-config.js", 'bs-config.js'
   copy_file "#{ __dir__ }/app/views/application/_browsersync.html.slim", 'app/views/application/_browsersync.html.slim'
@@ -111,7 +111,7 @@ end
 
 # husky + lint-staged
 after_bundle do
-  run 'yarn add husky lint-staged --dev'
+  run 'yarn add husky lint-staged'
 
   run %(npm pkg set scripts.prepare="husky install" && yarn run prepare)
   run %(yarn husky add .husky/pre-commit "yarn lint-staged")
@@ -119,7 +119,7 @@ end
 
 # Stylelint
 after_bundle do
-  run 'yarn add stylelint milk1000cc/stylelint-config-milk1000cc --dev'
+  run 'yarn add stylelint milk1000cc/stylelint-config-milk1000cc'
   run %(npm pkg set "lint-staged[*.sass]"="stylelint")
 
   copy_file "#{ __dir__ }/.stylelintrc.json", '.stylelintrc.json'
@@ -127,7 +127,7 @@ end
 
 # imagemin-lint-staged
 after_bundle do
-  run 'yarn add imagemin-lint-staged --dev'
+  run 'yarn add imagemin-lint-staged'
   run %(npm pkg set "lint-staged[*.{png,jpeg,jpg,gif,svg}]"="imagemin-lint-staged")
 end
 
