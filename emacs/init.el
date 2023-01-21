@@ -275,10 +275,6 @@
                                                   'projectile-rails-find-current-view))
       (projectile-rails-find-current-controller))))
 
-;; eslintd-fix
-(use-package eslintd-fix
-  :hook js2-mode)
-
 (use-package dockerfile-mode)
 (use-package lua-mode)
 (use-package markdown-mode)

@@ -117,14 +117,6 @@ after_bundle do
   run %(yarn husky add .husky/pre-commit "yarn lint-staged")
 end
 
-# ESLint
-after_bundle do
-  run 'yarn add eslint milk1000cc/eslint-config-milk1000cc --dev'
-  run %(npm pkg set "lint-staged[*.js]"="eslint")
-
-  copy_file "#{ __dir__ }/.eslintrc.json", '.eslintrc.json'
-end
-
 # Stylelint
 after_bundle do
   run 'yarn add stylelint milk1000cc/stylelint-config-milk1000cc --dev'
