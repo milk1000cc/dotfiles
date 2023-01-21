@@ -115,7 +115,9 @@ end
 
 # Stylelint
 after_bundle do
-  run 'yarn add stylelint milk1000cc/stylelint-config-milk1000cc'
+  file '.yarnrc', %("@milk1000cc:registry" "https://npm.pkg.github.com"\n)
+
+  run 'yarn add stylelint @milk1000cc/stylelint-config'
   run %(npm pkg set "lint-staged[*.sss]"="stylelint")
 
   copy_file "#{ __dir__ }/.stylelintrc.json", '.stylelintrc.json'
