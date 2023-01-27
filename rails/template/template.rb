@@ -1,6 +1,9 @@
-file '.envrc', %(PATH_add bin\n)
+file '.envrc', %(PATH_add bin\n\ndotenv\n)
 
-append_to_file '.gitignore', %(\n/vendor/bundle\n)
+file '.env.example', %(export NPM_TOKEN=\n)
+copy_file "#{ __dir__ }/.npmrc", '.npmrc'
+
+append_to_file '.gitignore', %(\n/.env\n\n/vendor/bundle\n)
 
 remove_file 'README.md'
 remove_file 'public/apple-touch-icon-precomposed.png'
@@ -115,9 +118,7 @@ end
 
 # Stylelint
 after_bundle do
-  file '.yarnrc', %("@milk1000cc:registry" "https://npm.pkg.github.com"\n)
-
-  run 'yarn add stylelint @milk1000cc/stylelint-config'
+  run 'yarn add stylelint'
   run %(npm pkg set "lint-staged[*.sss]"="stylelint")
 
   copy_file "#{ __dir__ }/.stylelintrc.json", '.stylelintrc.json'
