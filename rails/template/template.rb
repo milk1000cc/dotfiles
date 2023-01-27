@@ -74,15 +74,13 @@ after_bundle do
   copy_file "#{ __dir__ }/lib/tasks/factory_bot.rake", 'lib/tasks/factory_bot.rake'
 end
 
-# Change the name field in package.json to the project name
 after_bundle do
-  app_name = File.basename(File.expand_path('.'))
-  run %(npm pkg set name="#{ app_name }")
+  run %(npm pkg delete name)
 end
 
 # Browsersync
 after_bundle do
-  run 'yarn add browser-sync'
+  run 'yarn add browser-sync --dev'
 
   copy_file "#{ __dir__ }/bs-config.js", 'bs-config.js'
   copy_file "#{ __dir__ }/app/views/application/_browsersync.html.slim", 'app/views/application/_browsersync.html.slim'
@@ -93,7 +91,7 @@ after_bundle do
   run 'yarn remove postcss-nesting'
 
   run 'yarn add sugarss postcss-simple-vars postcss-nested postcss-mixins ' +
-    'postcss-import postcss-import-ext-glob postcss-discard-comments'
+    'postcss-import postcss-import-ext-glob postcss-discard-comments --dev'
 
   remove_file 'postcss.config.js'
   copy_file "#{ __dir__ }/postcss.config.js", 'postcss.config.js'
@@ -110,7 +108,7 @@ end
 
 # husky + lint-staged
 after_bundle do
-  run 'yarn add husky lint-staged'
+  run 'yarn add husky lint-staged --dev'
 
   run %(npm pkg set scripts.prepare="husky install" && yarn run prepare)
   run %(yarn husky add .husky/pre-commit "yarn lint-staged")
@@ -118,7 +116,7 @@ end
 
 # Stylelint
 after_bundle do
-  run 'yarn add stylelint'
+  run 'yarn add stylelint --dev'
   run %(npm pkg set "lint-staged[*.sss]"="stylelint")
 
   copy_file "#{ __dir__ }/.stylelintrc.json", '.stylelintrc.json'
@@ -126,7 +124,7 @@ end
 
 # imagemin-lint-staged
 after_bundle do
-  run 'yarn add imagemin-lint-staged'
+  run 'yarn add imagemin-lint-staged --dev'
   run %(npm pkg set "lint-staged[*.{png,jpeg,jpg,gif,svg}]"="imagemin-lint-staged")
 end
 
