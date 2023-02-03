@@ -2,5 +2,6 @@
 
 ```sh
 git clone https://github.com/milk1000cc/dotfiles.git
-ruby setup.rb
+cd dotfiles
+./install.sh
 ```

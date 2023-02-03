@@ -2,6 +2,8 @@
 /zsh/.zcompdump
 /zsh/.zsh_sessions/
 
+/.bundle/cache/
+
 /emacs/history
 /emacs/recentf
 /emacs/straight/*
