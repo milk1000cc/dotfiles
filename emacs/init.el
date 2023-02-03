@@ -244,6 +244,12 @@
 (use-package dotenv-mode
   :mode "\\.envrc\\'" "\\.envrc\\.example\\'")
 
+;; sh-script
+(use-package sh-script
+  :init
+  (setq sh-basic-offset 2)
+  (setq sh-shell-file "/usr/bin/env sh"))
+
 ;; systemd
 (use-package systemd
   :mode (("\\.service\\.erb\\'" . systemd-mode)
