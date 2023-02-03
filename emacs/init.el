@@ -282,7 +282,6 @@
       (projectile-rails-find-current-controller))))
 
 (use-package dockerfile-mode)
-(use-package lua-mode)
 (use-package markdown-mode)
 (use-package nginx-mode)
 (use-package pug-mode)
