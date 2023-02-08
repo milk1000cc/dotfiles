@@ -86,12 +86,9 @@ after_bundle do
   copy_file "#{ __dir__ }/app/views/application/_browsersync.html.slim", 'app/views/application/_browsersync.html.slim'
 end
 
-# SugarSS
+# PostCSS
 after_bundle do
-  run 'yarn remove postcss-nesting'
-
-  run 'yarn add sugarss postcss-simple-vars postcss-nested postcss-mixins ' +
-    'postcss-import postcss-import-ext-glob postcss-discard-comments'
+  run 'yarn remove autoprefixer postcss-nesting'
 
   remove_file 'postcss.config.js'
   copy_file "#{ __dir__ }/postcss.config.js", 'postcss.config.js'
