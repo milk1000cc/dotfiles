@@ -3,7 +3,7 @@ file '.envrc', %(PATH_add bin\n\ndotenv\n)
 file '.env.example', %(export NPM_TOKEN=\n)
 copy_file "#{ __dir__ }/.npmrc", '.npmrc'
 
-append_to_file '.gitignore', %(\n/.env\n\n/vendor/bundle\n)
+append_to_file '.gitignore', %(\n.env\n\n/vendor/bundle\n)
 
 remove_file 'README.md'
 remove_file 'public/apple-touch-icon-precomposed.png'
