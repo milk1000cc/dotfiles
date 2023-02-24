@@ -1,6 +1,5 @@
-file '.envrc', %(PATH_add bin\ndotenv\n)
-
-file '.env.example', %(export NPM_TOKEN=\n)
+copy_file "#{ __dir__ }/dot.envrc", '.envrc'
+copy_file "#{ __dir__ }/.env.example", '.env.example'
 copy_file "#{ __dir__ }/.npmrc", '.npmrc'
 
 append_to_file '.gitignore', %(\n.env\n\n/vendor/bundle\n)
