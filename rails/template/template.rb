@@ -45,7 +45,7 @@ environment 'config.active_job.queue_adapter = :test', env: :test
   gsub_file 'config/environments/production.rb', from, to
 end
 
-append_to_file 'config/initializers/assets.rb', <<-CODE
+append_to_file 'config/initializers/assets.rb', <<~CODE
   \nRails.application.config.assets.paths << Rails.root.join('node_modules')
 CODE
 
