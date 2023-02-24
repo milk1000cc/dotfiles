@@ -1,4 +1,4 @@
-file '.envrc', %(PATH_add bin\n\ndotenv\n)
+file '.envrc', %(PATH_add bin\ndotenv\n)
 
 file '.env.example', %(export NPM_TOKEN=\n)
 copy_file "#{ __dir__ }/.npmrc", '.npmrc'
