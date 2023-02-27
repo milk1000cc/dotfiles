@@ -37,7 +37,6 @@ environment data, env: :development
 environment 'config.active_job.queue_adapter = :test', env: :test
 
 {
-  '# config.require_master_key = true' => 'config.require_master_key = true',
   '# config.force_ssl = true' => 'config.force_ssl = true',
   'config.active_support.report_deprecations = false' => '# config.active_support.report_deprecations = false'
 }.each do |from, to|
