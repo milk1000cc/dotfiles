@@ -56,6 +56,7 @@ alias be='bundle exec'
 alias diff='colordiff -ur'
 alias pg_dump='pg_dump -Fc --no-acl --no-owner'
 alias pg_restore='pg_restore --clean --create --no-acl --no-owner -d postgres'
+alias fly='flyctl'
 
 +vi-git-stash-count() {
     local cnt
