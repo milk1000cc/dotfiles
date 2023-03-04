@@ -1,2 +1,15 @@
 javascript id="__bs_script__":
-  document.write("<script async src='http://HOST:3001/browser-sync/browser-sync-client.js?v=2.27.11'><\/script>".replace("HOST", location.hostname));
+  (function() {
+    try {
+      var script = document.createElement('script');
+      if ('async') {
+        script.async = true;
+      }
+      script.src = 'http://HOST:3001/browser-sync/browser-sync-client.js?v=2.28.1'.replace("HOST", location.hostname);
+      if (document.body) {
+        document.body.appendChild(script);
+      }
+    } catch (e) {
+      console.error("Browsersync: could not append script tag", e);
+    }
+  })()
