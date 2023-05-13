@@ -2,8 +2,6 @@ copy_file "#{ __dir__ }/dot.envrc", '.envrc'
 copy_file "#{ __dir__ }/.env.example", '.env.example'
 copy_file "#{ __dir__ }/.npmrc", '.npmrc'
 
-append_to_file '.gitignore', %(\n.env\n\n/vendor/bundle\n)
-
 remove_file 'README.md'
 remove_file 'public/apple-touch-icon-precomposed.png'
 remove_file 'public/apple-touch-icon.png'
@@ -50,6 +48,10 @@ CODE
 copy_file "#{ __dir__ }/config/initializers/action_view.rb", 'config/initializers/action_view.rb'
 copy_file "#{ __dir__ }/config/initializers/generators.rb", 'config/initializers/generators.rb'
 copy_file "#{ __dir__ }/config/initializers/locale.rb", 'config/initializers/locale.rb'
+
+after_bundle do
+  append_to_file '.gitignore', %(\n/vendor/bundle\n.env)
+end
 
 after_bundle do
   run 'bundle lock --add-platform x86_64-linux'
