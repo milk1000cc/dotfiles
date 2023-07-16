@@ -92,6 +92,11 @@ after_bundle do
 
   remove_file 'postcss.config.js'
   copy_file "#{ __dir__ }/postcss.config.js", 'postcss.config.js'
+
+  inside('app/assets/stylesheets') { run 'mv application.postcss.css application.postcss.sss' }
+
+  command = 'postcss ./app/assets/stylesheets/application.postcss.sss -o ./app/assets/builds/application.css'
+  run %(npm pkg set scripts.build:css="#{ command }")
 end
 
 # sanitize.css, Font Awesome
