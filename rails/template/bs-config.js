@@ -1,5 +1,7 @@
 module.exports = {
   files: [
+    'app/models',
+    'app/controllers',
     'app/views',
     'app/helpers',
     'app/assets/builds/application.{js,css}',
