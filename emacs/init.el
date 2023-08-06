@@ -108,7 +108,9 @@
 (use-package dired
   :straight nil
   :bind (:map dired-mode-map
-              ("e" . wdired-change-to-wdired-mode)))
+              ("e" . wdired-change-to-wdired-mode))
+  :init
+  (setq dired-free-space nil))
 
 ;; whitespace
 (use-package whitespace
