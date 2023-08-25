@@ -26,7 +26,7 @@ environment %(config.time_zone = 'Tokyo')
 data = <<-CODE
   config.hosts += [
     '.test',
-    '.ngrok.io',
+    '.ngrok-free.app',
     /[a-z0-9\\-]+\\.(\\d+\\.){4}nip\\.io/
   ]
 CODE
