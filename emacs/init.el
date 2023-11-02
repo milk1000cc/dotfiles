@@ -188,6 +188,7 @@
                                     helm-source-recentf
                                     helm-source-projectile-files-list))
   (setq savehist-additional-variables '(extended-command-history))
+  (setq helm-move-to-line-cycle-in-source nil)
   :custom-face
   (helm-buffer-directory ((t (:background nil :foreground "brightblue"))))
   (helm-ff-directory ((t (:background nil :foreground "LightSteelBlue"))))
