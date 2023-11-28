@@ -111,8 +111,6 @@ init_homebrew() {
             $path
         )
 
-        export RUBY_CONFIGURE_OPTS="--with-openssl-dir=${HOMEBREW_PREFIX}/opt/openssl@3"
-
         source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
     fi
 }
