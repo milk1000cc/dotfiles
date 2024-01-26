@@ -112,8 +112,8 @@ end
 after_bundle do
   run 'yarn add husky lint-staged --dev'
 
-  run %(npm pkg set scripts.prepare="husky install" && yarn run prepare)
-  run %(yarn husky add .husky/pre-commit "yarn lint-staged")
+  run %(npx husky init)
+  run %(echo "yarn lint-staged" > .husky/pre-commit)
 end
 
 # Stylelint
