@@ -263,6 +263,13 @@
   :custom-face
   (mmm-default-submode-face ((t (:background nil)))))
 
+;; flycheck
+(use-package flycheck)
+
+;; flycheck-status-emoji
+(use-package flycheck-status-emoji
+  :hook (flycheck-mode . flycheck-status-emoji-mode))
+
 ;; projectile-rails
 (use-package projectile-rails
   :bind ("C-c C-p" . my/rails-toggle-between-controller-and-view)
