@@ -264,7 +264,8 @@
   (mmm-default-submode-face ((t (:background nil)))))
 
 ;; flycheck
-(use-package flycheck)
+(use-package flycheck
+  :hook (json-mode . flycheck-mode))
 
 ;; flycheck-status-emoji
 (use-package flycheck-status-emoji
