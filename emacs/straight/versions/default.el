@@ -14,7 +14,6 @@
  ("epl" . "78ab7a85c08222cd15582a298a364774e3282ce6")
  ("f.el" . "4f03d7bb724a9049b0ab9ef86127694756f99656")
  ("flycheck" . "e56e30d8c66ffc9776d07740658d3b542c1a8e21")
- ("flycheck-status-emoji" . "4bd113ab42dec9544b66e0a27ed9008ce8148433")
  ("gnu-elpa-mirror" . "cb84b5e14b0ca40d84057a7395fbf6066c1c2a3a")
  ("haml-mode" . "a64d58df8f098f858c6c11fa1629a90969f9c7e8")
  ("helm" . "f34ea6b702648e5c7535a704bdb6c4d7afb4b3b8")
