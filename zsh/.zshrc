@@ -119,7 +119,6 @@ init_homebrew
 
 [[ -z $HOMEBREW_PREFIX ]] && compinit
 
-eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
 
 [[ -z $TMUX ]] && tmux
