@@ -42,4 +42,5 @@ link "zsh"
 link ".bundle" $HOME
 link ".gemrc" $HOME
 link ".irbrc" $HOME
+link ".default-gems" $HOME
 link "rails"
