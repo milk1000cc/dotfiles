@@ -54,10 +54,6 @@ after_bundle do
 end
 
 after_bundle do
-  run 'bundle lock --add-platform x86_64-linux'
-end
-
-after_bundle do
   run 'bundle binstubs rspec-core'
 
   generate 'rspec:install'
