@@ -76,7 +76,7 @@ _update_prompt() {
 
     messages1+=( "%F{yellow}%B%~%b%f" )
 
-    ruby_version=$( rbenv version-name )
+    ruby_version=$( ruby -e "print RUBY_VERSION" )
     messages1+=( "%F{magenta}%B%U(${ruby_version})%u%b%f" )
 
     if [[ -n $vcs_info_msg_0_ ]]; then
@@ -120,7 +120,7 @@ init_homebrew
 [[ -z $HOMEBREW_PREFIX ]] && compinit
 
 eval "$(direnv hook zsh)"
-eval "$(rbenv init -)"
+eval "$(mise activate zsh)"
 
 [[ -z $TMUX ]] && tmux
 
