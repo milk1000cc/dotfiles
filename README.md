@@ -3,5 +3,5 @@
 ```sh
 git clone https://github.com/milk1000cc/dotfiles.git
 cd dotfiles
-./install.sh
+./setup.sh
 ```
