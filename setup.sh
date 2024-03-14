@@ -36,6 +36,7 @@ fi
 link ".zshenv" $HOME
 link "emacs"
 link "git"
+link "mise"
 link "tmux"
 link "zsh"
 
