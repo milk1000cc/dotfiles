@@ -243,10 +243,6 @@
             (lambda ()
               (setq-local comment-start "//"))))
 
-;; dotenv-mode
-(use-package dotenv-mode
-  :mode "\\.envrc\\'" "\\.envrc\\.example\\'")
-
 ;; sh-script
 (use-package sh-script
   :init
@@ -289,6 +285,7 @@
       (projectile-rails-find-current-controller))))
 
 (use-package dockerfile-mode)
+(use-package dotenv-mode)
 (use-package markdown-mode)
 (use-package nginx-mode)
 (use-package pug-mode)
