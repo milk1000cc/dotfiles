@@ -33,14 +33,14 @@ if ! [ -d $CONFIG_DIR ]; then
   mkdir $CONFIG_DIR
 fi
 
+link ".zshenv" $HOME
 link "emacs"
 link "git"
 link "tmux"
-link ".zshenv" $HOME
 link "zsh"
 
 link ".bundle" $HOME
+link ".default-gems" $HOME
 link ".gemrc" $HOME
 link ".irbrc" $HOME
-link ".default-gems" $HOME
 link "rails"
