@@ -1,4 +1,4 @@
-copy_file "#{ __dir__ }/dot.envrc", '.envrc'
+copy_file "#{ __dir__ }/dot.mise.toml", '.mise.toml'
 copy_file "#{ __dir__ }/.env.example", '.env.example'
 copy_file "#{ __dir__ }/.npmrc", '.npmrc'
 
