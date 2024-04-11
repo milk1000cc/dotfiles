@@ -84,7 +84,7 @@ end
 
 # PostCSS
 after_bundle do
-  run 'yarn remove autoprefixer postcss-nesting'
+  run 'yarn remove autoprefixer postcss-import postcss-nesting'
 
   remove_file 'postcss.config.js'
   copy_file "#{ __dir__ }/postcss.config.js", 'postcss.config.js'
