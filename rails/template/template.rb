@@ -23,14 +23,15 @@ end
 
 environment %(config.time_zone = 'Tokyo')
 
-data = <<-CODE
-  config.hosts += [
-    '.test',
-    '.ngrok-free.app',
-    /[a-z0-9\\-]+\\.(\\d+\\.){4}nip\\.io/
-  ]
-CODE
-environment data, env: :development
+environment nil, env: :development do
+  <<~'CODE'
+    config.hosts += [
+      '.test',
+      '.ngrok-free.app',
+      /[a-z0-9\-]+\.(\d+\.){4}nip\.io/
+    ]
+  CODE
+end
 
 environment 'config.active_job.queue_adapter = :test', env: :test
 
