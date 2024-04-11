@@ -17,6 +17,10 @@ gem_group :development, :test do
   gem 'rspec-rails'
 end
 
+gem_group :development do
+  gem 'rails_live_reload'
+end
+
 gem_group :test do
   gem 'database_rewinder'
 end
@@ -73,14 +77,6 @@ end
 
 after_bundle do
   run %(npm pkg delete name)
-end
-
-# Browsersync
-after_bundle do
-  run 'yarn add browser-sync --dev'
-
-  copy_file "#{ __dir__ }/bs-config.js", 'bs-config.js'
-  copy_file "#{ __dir__ }/app/views/application/_browsersync.html.slim", 'app/views/application/_browsersync.html.slim'
 end
 
 # PostCSS
