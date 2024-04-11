@@ -55,10 +55,13 @@ copy_file "#{ __dir__ }/config/initializers/generators.rb", 'config/initializers
 copy_file "#{ __dir__ }/config/initializers/locale.rb", 'config/initializers/locale.rb'
 
 after_bundle do
-  append_to_file '.gitignore', <<~CODE
-    !/.env.example
-    /vendor/bundle
-  CODE
+  %w(.gitignore .dockerignore).each do |path|
+    append_to_file path, <<~CODE
+
+      !/.env.example
+      /vendor/bundle
+    CODE
+  end
 end
 
 after_bundle do
