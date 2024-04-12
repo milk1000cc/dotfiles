@@ -40,8 +40,6 @@ environment nil, env: :development do
   CODE
 end
 
-environment 'config.active_job.queue_adapter = :test', env: :test
-
 {
   '# config.force_ssl = true' => 'config.force_ssl = true',
   'config.active_support.report_deprecations = false' => '# config.active_support.report_deprecations = false'
