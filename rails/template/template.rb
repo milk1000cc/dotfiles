@@ -8,6 +8,9 @@ remove_file 'public/apple-touch-icon.png'
 remove_file 'public/favicon.ico'
 remove_file 'public/robots.txt'
 
+remove_dir 'storage'
+remove_dir 'tmp/storage'
+
 gem 'meta-tags'
 gem 'slim-rails'
 gem 'view_component'
