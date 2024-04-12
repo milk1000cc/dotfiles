@@ -30,6 +30,9 @@ end
 
 environment %(config.time_zone = 'Tokyo')
 
+comment_lines 'config/environments/development.rb', 'config.active_support.deprecation = :log'
+environment 'config.active_support.deprecation = :raise', env: :development
+
 environment nil, env: :development do
   <<~'CODE'
     config.hosts += [
@@ -40,12 +43,11 @@ environment nil, env: :development do
   CODE
 end
 
-{
-  '# config.force_ssl = true' => 'config.force_ssl = true',
-  'config.active_support.report_deprecations = false' => '# config.active_support.report_deprecations = false'
-}.each do |from, to|
-  gsub_file 'config/environments/production.rb', from, to
-end
+comment_lines 'config/environments/test.rb', 'config.active_support.deprecation = :stderr'
+environment 'config.active_support.deprecation = :raise', env: :test
+
+comment_lines 'config/environments/production.rb', 'config.active_support.report_deprecations = false'
+environment 'config.active_support.deprecation = :log', env: :production
 
 append_to_file 'config/initializers/assets.rb', <<~CODE
   \nRails.application.config.assets.paths << Rails.root.join('node_modules')
