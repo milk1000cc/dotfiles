@@ -56,6 +56,7 @@ CODE
 copy_file "#{ __dir__ }/config/initializers/action_view.rb", 'config/initializers/action_view.rb'
 copy_file "#{ __dir__ }/config/initializers/generators.rb", 'config/initializers/generators.rb'
 copy_file "#{ __dir__ }/config/initializers/locale.rb", 'config/initializers/locale.rb'
+copy_file "#{ __dir__ }/config/initializers/rails_live_reload.rb", 'config/initializers/rails_live_reload.rb'
 
 after_bundle do
   %w(.gitignore .dockerignore).each do |path|
