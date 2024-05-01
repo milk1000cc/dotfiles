@@ -5,8 +5,7 @@ if defined?(RailsLiveReload)
       %r{app/controllers/},
       %r{app/views/},
       %r{app/helpers/},
-      %r{app/assets/stylesheets/},
-      %r{app/javascript/},
+      %r{app/assets/builds/application\.(js|css)$},
       %r{app/components/}
     ]
 
