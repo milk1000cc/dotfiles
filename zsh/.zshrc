@@ -12,7 +12,6 @@ export TERM='xterm-256color'
 export LANG='ja_JP.UTF-8'
 export EDITOR=$EMACS_COMMAND
 export LS_COLORS='di=01;36:ln=01;35:so=01;34:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
-export DIRENV_LOG_FORMAT=""
 
 bindkey '^r' history-incremental-pattern-search-backward  # glob (*) 検索ができるように
 
