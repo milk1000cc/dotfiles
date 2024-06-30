@@ -106,6 +106,7 @@ init_homebrew() {
 
         path=(
             $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
+            $HOME/.cargo/bin
             $path
         )
 
