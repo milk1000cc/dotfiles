@@ -36,7 +36,6 @@ environment 'config.active_support.deprecation = :raise', env: :development
 environment nil, env: :development do
   <<~'CODE'
     config.hosts += [
-      '.test',
       '.ngrok-free.app',
       /[a-z0-9\-]+\.(\d+\.){4}nip\.io/
     ]
