@@ -9,6 +9,9 @@
 --skip-action-cable
 --skip-jbuilder
 --skip-test
+--skip-system-test
+--skip-rubocop
+--skip-decrypted-diffs
 
 --javascript=esbuild
 --css=postcss
