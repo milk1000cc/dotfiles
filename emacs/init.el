@@ -226,7 +226,7 @@
 (use-package js2-mode
   :mode "\\.js\\'" "\\.gs\\'"
   :init
-  (setq js2-global-externs '("URL" "IntersectionObserver" "ResizeObserver" "sessionStorage"))
+  (setq js2-global-externs '("URL" "URLSearchParams" "IntersectionObserver" "ResizeObserver" "sessionStorage"))
   (setq js2-include-node-externs t)
   (setq js2-strict-missing-semi-warning nil))
 
