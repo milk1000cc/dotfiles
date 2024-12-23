@@ -12,6 +12,7 @@
 --skip-test
 --skip-system-test
 --skip-rubocop
+--skip-solid
 --skip-decrypted-diffs
 
 --javascript=esbuild
