@@ -3,13 +3,9 @@ copy_file "#{ __dir__ }/.env.example", '.env.example'
 copy_file "#{ __dir__ }/.npmrc", '.npmrc'
 
 remove_file 'README.md'
-remove_file 'public/apple-touch-icon-precomposed.png'
-remove_file 'public/apple-touch-icon.png'
-remove_file 'public/favicon.ico'
+remove_file 'public/icon.png'
+remove_file 'public/icon.svg'
 remove_file 'public/robots.txt'
-
-remove_dir 'storage'
-remove_dir 'tmp/storage'
 
 gem 'meta-tags'
 gem 'slim-rails'
@@ -49,7 +45,9 @@ comment_lines 'config/environments/production.rb', 'config.active_support.report
 environment 'config.active_support.deprecation = :log', env: :production
 
 append_to_file 'config/initializers/assets.rb', <<~CODE
-  \nRails.application.config.assets.paths << Rails.root.join('node_modules')
+
+  Rails.application.config.assets.paths << Rails.root.join('node_modules/@fortawesome/fontawesome-free/webfonts')
+  Rails.application.config.assets.excluded_paths << Rails.root.join('app/assets/stylesheets')
 CODE
 
 copy_file "#{ __dir__ }/config/initializers/action_view.rb", 'config/initializers/action_view.rb'
@@ -90,12 +88,17 @@ end
 
 # PostCSS
 after_bundle do
-  run 'yarn remove autoprefixer postcss-import postcss-nesting'
+  run 'yarn remove autoprefixer postcss postcss-cli postcss-import postcss-nesting'
+  run 'yarn add postcss postcss-cli postcss-url --dev'
 
   remove_file 'postcss.config.js'
   copy_file "#{ __dir__ }/postcss.config.js", 'postcss.config.js'
 
-  inside('app/assets/stylesheets') { run 'mv application.postcss.css application.postcss.sss' }
+  remove_file 'app/assets/stylesheets/application.postcss.css'
+  copy_file(
+    "#{ __dir__ }/app/assets/stylesheets/application.postcss.sss",
+    'app/assets/stylesheets/application.postcss.sss'
+  )
 
   command = 'postcss ./app/assets/stylesheets/application.postcss.sss -o ./app/assets/builds/application.css'
   run %(npm pkg set scripts.build:css="#{ command }")
@@ -104,10 +107,6 @@ end
 # sanitize.css, Font Awesome
 after_bundle do
   run 'yarn add sanitize.css @fortawesome/fontawesome-free'
-
-  remove_file 'app/assets/config/manifest.js'
-  copy_file "#{ __dir__ }/app/assets/config/manifest.js", 'app/assets/config/manifest.js'
-  copy_file "#{ __dir__ }/app/views/application/_stylesheets.html.slim", 'app/views/application/_stylesheets.html.slim'
 end
 
 # husky + lint-staged
