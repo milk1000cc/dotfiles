@@ -1,0 +1,1 @@
+export SERVER_PROCESS=1  # https://github.com/railsjazz/rails_live_reload/pull/31

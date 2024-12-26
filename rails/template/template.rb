@@ -1,6 +1,7 @@
 copy_file "#{ __dir__ }/dot.mise.toml", '.mise.toml'
 copy_file "#{ __dir__ }/.env.example", '.env.example'
 copy_file "#{ __dir__ }/.npmrc", '.npmrc'
+copy_file "#{ __dir__ }/.pumaenv", '.pumaenv'
 
 remove_file 'README.md'
 remove_file 'public/icon.png'
