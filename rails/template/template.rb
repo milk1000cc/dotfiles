@@ -28,6 +28,7 @@ end
 environment %(config.time_zone = 'Tokyo')
 
 comment_lines 'config/environments/development.rb', 'config.active_support.deprecation = :log'
+comment_lines 'config/environments/development.rb', 'config.action_view.annotate_rendered_view_with_filenames = true'
 environment 'config.active_support.deprecation = :raise', env: :development
 
 environment nil, env: :development do
