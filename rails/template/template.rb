@@ -44,6 +44,7 @@ comment_lines 'config/environments/test.rb', 'config.active_support.deprecation 
 environment 'config.active_support.deprecation = :raise', env: :test
 
 comment_lines 'config/environments/production.rb', 'config.active_support.report_deprecations = false'
+comment_lines 'config/environments/production.rb', /config\.public_file_server\.headers = /
 environment 'config.active_support.deprecation = :log', env: :production
 
 append_to_file 'config/initializers/assets.rb', <<~CODE
