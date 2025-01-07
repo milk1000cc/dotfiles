@@ -9,6 +9,8 @@ remove_file 'public/icon.svg'
 remove_file 'public/robots.txt'
 
 gem 'meta-tags'
+gem 'sentry-rails'
+gem 'sentry-ruby'
 gem 'slim-rails'
 gem 'view_component'
 
@@ -45,7 +47,15 @@ environment 'config.active_support.deprecation = :raise', env: :test
 
 comment_lines 'config/environments/production.rb', 'config.active_support.report_deprecations = false'
 comment_lines 'config/environments/production.rb', /config\.public_file_server\.headers = /
-environment 'config.active_support.deprecation = :log', env: :production
+environment nil, env: :production do
+  <<~CODE
+    config.active_support.deprecation = ->(message, callstack, deprecator) do
+      error = ActiveSupport::DeprecationException.new(message)
+      error.set_backtrace(callstack.map(&:to_s))
+      Sentry.capture_exception(error)
+    end
+  CODE
+end
 
 append_to_file 'config/initializers/assets.rb', <<~CODE
 
@@ -57,6 +67,7 @@ copy_file "#{ __dir__ }/config/initializers/action_view.rb", 'config/initializer
 copy_file "#{ __dir__ }/config/initializers/generators.rb", 'config/initializers/generators.rb'
 copy_file "#{ __dir__ }/config/initializers/locale.rb", 'config/initializers/locale.rb'
 copy_file "#{ __dir__ }/config/initializers/rails_live_reload.rb", 'config/initializers/rails_live_reload.rb'
+copy_file "#{ __dir__ }/config/initializers/sentry.rb", 'config/initializers/sentry.rb'
 
 after_bundle do
   %w(.gitignore .dockerignore).each do |path|
