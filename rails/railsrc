@@ -11,6 +11,7 @@
 --skip-jbuilder
 --skip-test
 --skip-system-test
+--skip-thruster
 --skip-rubocop
 --skip-solid
 --skip-decrypted-diffs
