@@ -66,6 +66,7 @@ CODE
 copy_file "#{ __dir__ }/config/initializers/action_view.rb", 'config/initializers/action_view.rb'
 copy_file "#{ __dir__ }/config/initializers/generators.rb", 'config/initializers/generators.rb'
 copy_file "#{ __dir__ }/config/initializers/locale.rb", 'config/initializers/locale.rb'
+copy_file "#{ __dir__ }/config/initializers/meta_tags.rb", 'config/initializers/meta_tags.rb'
 copy_file "#{ __dir__ }/config/initializers/rails_live_reload.rb", 'config/initializers/rails_live_reload.rb'
 copy_file "#{ __dir__ }/config/initializers/sentry.rb", 'config/initializers/sentry.rb'
 
