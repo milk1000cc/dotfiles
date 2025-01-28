@@ -1,0 +1,2 @@
+[install.scopes]
+"@milk1000cc" = { token = "$NPM_TOKEN", url = "https://npm.pkg.github.com" }
