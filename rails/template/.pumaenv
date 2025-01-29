@@ -1,1 +1,5 @@
-export SERVER_PROCESS=1  # https://github.com/railsjazz/rails_live_reload/pull/31
+# https://scottw.com/mise-and-puma-dev
+command -v mise >/dev/null && eval "$(mise activate --shims)"
+
+# https://github.com/railsjazz/rails_live_reload/pull/31
+export SERVER_PROCESS=1
