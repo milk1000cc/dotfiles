@@ -1,10 +1,6 @@
-def package_json(&block)
-  package_json = JSON.parse(File.read('package.json')).tap { |package_json| yield package_json }
-  File.write 'package.json', JSON.pretty_generate(package_json)
-end
-
 copy_file "#{ __dir__ }/dot.mise.toml", '.mise.toml'
 copy_file "#{ __dir__ }/.env.example", '.env.example'
+copy_file "#{ __dir__ }/.npmrc", '.npmrc'
 copy_file "#{ __dir__ }/.pumaenv", '.pumaenv'
 
 remove_file 'README.md'
@@ -102,15 +98,13 @@ after_bundle do
 end
 
 after_bundle do
-  package_json do |package_json|
-    package_json.delete 'name'
-  end
+  run %(npm pkg delete name)
 end
 
 # PostCSS
 after_bundle do
-  run 'bun remove autoprefixer postcss postcss-cli postcss-import postcss-nesting'
-  run 'bun add -d postcss postcss-cli postcss-url'
+  run 'yarn remove autoprefixer postcss postcss-cli postcss-import postcss-nesting'
+  run 'yarn add postcss postcss-cli postcss-url --dev'
 
   remove_file 'postcss.config.js'
   copy_file "#{ __dir__ }/postcss.config.js", 'postcss.config.js'
@@ -121,58 +115,38 @@ after_bundle do
     'app/assets/stylesheets/application.postcss.sss'
   )
 
-  package_json do |package_json|
-    package_json['scripts']['build:css'] = <<~CODE.strip
-      postcss ./app/assets/stylesheets/application.postcss.sss -o ./app/assets/builds/application.css
-    CODE
-  end
+  command = 'postcss ./app/assets/stylesheets/application.postcss.sss -o ./app/assets/builds/application.css'
+  run %(npm pkg set scripts.build:css="#{ command }")
 end
 
 # sanitize.css, Font Awesome
 after_bundle do
-  run 'bun add sanitize.css @fortawesome/fontawesome-free'
+  run 'yarn add sanitize.css @fortawesome/fontawesome-free'
 end
 
 # husky + lint-staged
 after_bundle do
-  run 'bun add -d husky lint-staged'
+  run 'yarn add husky lint-staged --dev'
 
-  run %(bunx husky init)
-  run %(echo "bun run lint-staged" > .husky/pre-commit)
-
-  package_json do |package_json|
-    package_json['lint-staged'] ||= {}
-  end
+  run %(npx husky init)
+  run %(echo "yarn lint-staged" > .husky/pre-commit)
 end
 
 # Stylelint
 after_bundle do
-  run 'bun add -d stylelint'
-
-  package_json do |package_json|
-    package_json['lint-staged']['*.sss'] = 'stylelint'
-  end
+  run 'yarn add stylelint --dev'
+  run %(npm pkg set "lint-staged[*.sss]"="stylelint")
 
   copy_file "#{ __dir__ }/.stylelintrc.json", '.stylelintrc.json'
 end
 
 # imagemin-lint-staged
 after_bundle do
-  run 'bun add -d imagemin-lint-staged'
-
-  package_json do |package_json|
-    package_json['lint-staged']['*.{png,jpeg,jpg,gif,svg}'] = 'imagemin-lint-staged'
-  end
+  run 'yarn add imagemin-lint-staged --dev'
+  run %(npm pkg set "lint-staged[*.{png,jpeg,jpg,gif,svg}]"="imagemin-lint-staged")
 end
 
 after_bundle do
   remove_file 'Procfile.dev'
   copy_file "#{ __dir__ }/Procfile.dev", 'Procfile.dev'
-end
-
-# Bun: Configure a private registry
-after_bundle do
-  copy_file "#{ __dir__ }/bunfig.toml", 'bunfig.toml'
-
-  say 'Set $NPM_TOKEN and run `bun add -d @milk1000cc/postcss-config @milk1000cc/stylelint-config`', :green
 end

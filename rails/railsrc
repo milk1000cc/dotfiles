@@ -16,5 +16,5 @@
 --skip-solid
 --skip-decrypted-diffs
 
---javascript=bun
+--javascript=esbuild
 --css=postcss
