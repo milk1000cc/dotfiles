@@ -71,13 +71,11 @@ copy_file "#{ __dir__ }/config/initializers/rails_live_reload.rb", 'config/initi
 copy_file "#{ __dir__ }/config/initializers/sentry.rb", 'config/initializers/sentry.rb'
 
 after_bundle do
-  %w(.gitignore .dockerignore).each do |path|
-    append_to_file path, <<~CODE
+  append_to_file '.gitignore', <<~CODE
 
-      !/.env.example
-      /vendor/bundle
-    CODE
-  end
+    !/.env.example
+    /vendor/bundle
+  CODE
 end
 
 after_bundle do
