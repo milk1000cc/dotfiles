@@ -25,6 +25,7 @@ end
 
 gem_group :test do
   gem 'database_rewinder'
+  gem 'super_diff'
 end
 
 environment %(config.time_zone = 'Tokyo')
@@ -91,6 +92,7 @@ after_bundle do
 
   copy_file "#{ __dir__ }/spec/support/database_rewinder.rb", 'spec/support/database_rewinder.rb'
   copy_file "#{ __dir__ }/spec/support/factory_bot.rb", 'spec/support/factory_bot.rb'
+  copy_file "#{ __dir__ }/spec/support/super_diff.rb", 'spec/support/super_diff.rb'
 
   copy_file "#{ __dir__ }/lib/tasks/factory_bot.rake", 'lib/tasks/factory_bot.rake'
 end
