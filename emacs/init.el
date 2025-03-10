@@ -209,6 +209,7 @@
 
 ;; enh-ruby-mode
 (use-package enh-ruby-mode
+  :bind ("C-x r" . enh-ruby-mode)
   :mode
   "\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'"
   "Brewfile\\'" "\\.builder\\'"
