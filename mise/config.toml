@@ -2,5 +2,5 @@
 node = "lts"
 java = "17"
 usage = "latest"
-ruby = "3.4.2"
+ruby = "3.4.3"
 "npm:yarn" = "latest"
