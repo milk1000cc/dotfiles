@@ -1,4 +1,5 @@
 (("Emacs-wgrep" . "49f09ab9b706d2312cab1199e1eeb1bcd3f27f6f")
+ ("ahk-mode" . "729007b5f22a49f5187ff47fca18c0d674e73047")
  ("bind-key" . "aa22c8c3c740c2f306509b9c37d9511cfa41b612")
  ("compat" . "03a8803fff351f3b45997863aceb58b1e4cc9424")
  ("dash.el" . "fcb5d831fc08a43f984242c7509870f30983c27c")

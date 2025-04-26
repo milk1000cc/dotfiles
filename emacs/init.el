@@ -285,6 +285,7 @@
                                                   'projectile-rails-find-current-view))
       (projectile-rails-find-current-controller))))
 
+(use-package ahk-mode)
 (use-package dockerfile-mode)
 (use-package dotenv-mode)
 (use-package markdown-mode)
