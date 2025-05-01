@@ -146,7 +146,7 @@
   (setq rg-show-header nil)
   (setq transient-save-history nil)
   :custom-face
-  (rg-info-face ((t :underline t)))
+  (rg-info-face ((t (:foreground "brightgreen" :underline t))))
   :config
   ;; result buffer を都度生成する (https://rgel.readthedocs.io/en/2.2.1/usage.html#command-rg-save-search)
   (defadvice rg-run (before rg-run-before activate)
