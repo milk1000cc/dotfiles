@@ -119,11 +119,11 @@
   (setq whitespace-style '(face trailing tabs spaces))  ; 基本は、行末スペース・タブ・ハードスペース・全角スペースを強調
   (setq whitespace-line-column 120)
   :custom-face
-  (whitespace-trailing ((t (:background nil :foreground "SteelBlue" :underline t))))
+  (whitespace-trailing ((t (:foreground "SteelBlue" :underline t))))
   (whitespace-tab ((t (:background "Gray"))))
   (whitespace-hspace ((t (:background "Gray"))))
   (whitespace-space ((t (:background "Aquamarine"))))
-  (whitespace-line ((t (:background nil :foreground "brightred"))))
+  (whitespace-line ((t (:foreground "brightred"))))
   :config
   (global-whitespace-mode 1)
   ;; enh-ruby-mode, js2-mode では、長い列も強調
@@ -260,7 +260,7 @@
 ;; mmm-mode
 (use-package mmm-mode
   :custom-face
-  (mmm-default-submode-face ((t (:background nil)))))
+  (mmm-default-submode-face ((t (:background unspecified)))))
 
 ;; flycheck
 (use-package flycheck
