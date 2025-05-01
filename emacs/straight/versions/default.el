@@ -17,7 +17,7 @@
  ("flycheck" . "16b536b031cbfb5e95a3914ea1e6c1bcadb4d0ad")
  ("gnu-elpa-mirror" . "f0d83858f9d1b250f788c2228214f2a7ef8b1a66")
  ("haml-mode" . "a64d58df8f098f858c6c11fa1629a90969f9c7e8")
- ("helm" . "3d46c65f0ffc68ca31db9dfa54f47fe8333f137d")
+ ("helm" . "acfa5e1767a8359ff87609df773658d1a642c558")
  ("helm-projectile" . "041076e35a6663302a91a0fa672f847c7d64bf29")
  ("inf-ruby" . "b8076aad10dfb0ba1e3a8b0d39c2b370dbe96ab0")
  ("js2-mode" . "e0c302872de4d26a9c1614fac8d6b94112b96307")

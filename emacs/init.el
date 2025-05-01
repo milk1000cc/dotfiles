@@ -190,8 +190,10 @@
   (setq savehist-additional-variables '(extended-command-history))
   (setq helm-move-to-line-cycle-in-source nil)
   :custom-face
-  (helm-buffer-directory ((t (:background nil :foreground "brightblue"))))
-  (helm-ff-directory ((t (:background nil :foreground "LightSteelBlue"))))
+  (helm-source-header ((t (:extend t :background "#22083397778B" :foreground "white" :weight bold))))  ; SEE ALSO: helm-core.el
+  (helm-selection ((t (:extend t :background "ForestGreen"))))  ; SEE ALSO: helm-core.el
+  (helm-buffer-directory ((t (:foreground "brightblue"))))
+  (helm-ff-directory ((t (:foreground "LightSteelBlue"))))
   (helm-ff-file ((t (:inherit 'helm-ff-directory))))
   (helm-ff-symlink ((t (:inherit 'helm-ff-directory))))
   :config
