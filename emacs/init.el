@@ -112,6 +112,13 @@
   :init
   (setq dired-free-space nil))
 
+;; ls-lisp
+(use-package ls-lisp
+  :straight nil
+  :init
+  ;; dired で "." ".." が必ず先頭に来るように
+  (setq ls-lisp-use-insert-directory-program nil))
+
 ;; whitespace
 (use-package whitespace
   :init
