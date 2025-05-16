@@ -2,7 +2,7 @@
 node = "lts"
 java = "17"
 usage = "latest"
-ruby = "3.4.3"
+ruby = "3.4.4"
 "npm:yarn" = "latest"
 
 [settings]
