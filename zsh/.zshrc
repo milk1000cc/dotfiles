@@ -95,16 +95,13 @@ add-zsh-hook precmd vcs_info
 add-zsh-hook precmd _update_prompt
 add-zsh-hook chpwd _update_curdir
 
-init_homebrew() {
+if [[ -n $HOMEBREW_PREFIX ]]; then
   fpath=(
     $HOMEBREW_PREFIX/share/zsh/site-functions
     $fpath
   )
 
-  compinit
-
   path=(
-    $HOME/.local/bin
     $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
     $HOME/.cargo/bin
     $path
@@ -112,18 +109,14 @@ init_homebrew() {
 
   source "$HOMEBREW_PREFIX/share/google-cloud-sdk/path.zsh.inc"
   source "$HOMEBREW_PREFIX/share/google-cloud-sdk/completion.zsh.inc"
-}
-
-if [[ -n $HOMEBREW_PREFIX ]]; then
-  init_homebrew
-else
-  path=(
-    $HOME/.local/bin
-    $path
-  )
-
-  compinit
 fi
+
+path=(
+  $HOME/.local/bin
+  $path
+)
+
+compinit
 
 eval "$(mise activate zsh)"
 
