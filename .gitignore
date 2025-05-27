@@ -6,6 +6,8 @@
 
 /emacs/history
 /emacs/recentf
+/emacs/tramp
+/emacs/eln-cache/
 /emacs/straight/*
 !/emacs/straight/
 !/emacs/straight/versions/
