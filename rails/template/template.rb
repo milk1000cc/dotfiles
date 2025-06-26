@@ -71,6 +71,9 @@ copy_file "#{ __dir__ }/config/initializers/meta_tags.rb", 'config/initializers/
 copy_file "#{ __dir__ }/config/initializers/rails_live_reload.rb", 'config/initializers/rails_live_reload.rb'
 copy_file "#{ __dir__ }/config/initializers/sentry.rb", 'config/initializers/sentry.rb'
 
+remove_file 'app/models/application_record.rb'
+copy_file "#{ __dir__ }/app/models/application_record.rb", 'app/models/application_record.rb'
+
 after_bundle do
   append_to_file '.gitignore', <<~CODE
 
