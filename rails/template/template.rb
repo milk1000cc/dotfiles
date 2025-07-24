@@ -33,15 +33,7 @@ environment %(config.time_zone = 'Tokyo')
 comment_lines 'config/environments/development.rb', 'config.active_support.deprecation = :log'
 comment_lines 'config/environments/development.rb', 'config.action_view.annotate_rendered_view_with_filenames = true'
 environment 'config.active_support.deprecation = :raise', env: :development
-
-environment nil, env: :development do
-  <<~'CODE'
-    config.hosts += [
-      '.ngrok-free.app',
-      /[a-z0-9\-]+\.(\d+\.){4}nip\.io/
-    ]
-  CODE
-end
+environment 'config.hosts << /[a-z0-9\-]+\.(\d+\.){4}nip\.io/', env: :development
 
 comment_lines 'config/environments/test.rb', 'config.active_support.deprecation = :stderr'
 environment 'config.active_support.deprecation = :raise', env: :test
