@@ -118,8 +118,8 @@ path=(
 
 compinit
 
-eval "$(mise activate zsh)"
-
 [[ -z $TMUX ]] && tmux
+
+eval "$(mise activate zsh)"
 
 [[ -f "$HOME/.curdir" ]] && cd `cat $HOME/.curdir`
