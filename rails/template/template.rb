@@ -40,6 +40,8 @@ environment 'config.active_support.deprecation = :raise', env: :test
 
 comment_lines 'config/environments/production.rb', 'config.active_support.report_deprecations = false'
 comment_lines 'config/environments/production.rb', /config\.public_file_server\.headers = /
+uncomment_lines 'config/environments/production.rb', 'config.assume_ssl = true'
+uncomment_lines 'config/environments/production.rb', 'config.force_ssl = true'
 environment nil, env: :production do
   <<~CODE
     config.active_support.deprecation = ->(message, callstack, deprecator) do
