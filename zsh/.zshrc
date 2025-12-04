@@ -51,7 +51,6 @@ alias dc='docker compose'
 alias r='rails'
 alias e=$EMACS_COMMAND
 alias vi='vim'
-alias be='bundle exec'
 alias diff='colordiff -ur'
 alias pg_dump='pg_dump -Fc --no-acl --no-owner'
 alias pg_restore='pg_restore --clean --create --no-acl --no-owner -d postgres'
