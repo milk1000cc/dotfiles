@@ -12,7 +12,6 @@ gem 'meta-tags'
 gem 'sentry-rails'
 gem 'sentry-ruby'
 gem 'slim-rails'
-gem 'view_component'
 
 gem_group :development, :test do
   gem 'factory_bot_rails'

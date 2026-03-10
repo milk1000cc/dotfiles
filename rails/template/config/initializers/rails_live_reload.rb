@@ -5,8 +5,7 @@ if defined?(RailsLiveReload)
       %r{app/controllers/},
       %r{app/views/},
       %r{app/helpers/},
-      %r{app/assets/builds/application\.(js|css)$},
-      %r{app/components/}
+      %r{app/assets/builds/application\.(js|css)$}
     ]
 
     patterns.each { |pattern| config.watch pattern, reload: :always }
