@@ -10,6 +10,7 @@
 	df = diff
 	dfc = diff --cached
 	cl = clean -d --interactive
+	pushf = push --force-with-lease
 [github]
 	user = milk1000cc
 [pager]
