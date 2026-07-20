@@ -8,7 +8,6 @@ SAVEHIST=10000
 
 EMACS_COMMAND='env COLORTERM=1 emacs -nw'  # https://syohex.hatenablog.com/entry/2022/11/14/002626
 
-export TERM='xterm-256color'
 export LANG='ja_JP.UTF-8'
 export EDITOR=$EMACS_COMMAND
 export LS_COLORS='di=01;36:ln=01;35:so=01;34:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
@@ -94,24 +93,11 @@ add-zsh-hook precmd vcs_info
 add-zsh-hook precmd _update_prompt
 add-zsh-hook chpwd _update_curdir
 
-if [[ -n $HOMEBREW_PREFIX ]]; then
-  fpath=(
-    $HOMEBREW_PREFIX/share/zsh/site-functions
-    $fpath
-  )
-
-  path=(
-    $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
-    $HOME/.cargo/bin
-    $path
-  )
-
-  source "$HOMEBREW_PREFIX/share/google-cloud-sdk/path.zsh.inc"
-  source "$HOMEBREW_PREFIX/share/google-cloud-sdk/completion.zsh.inc"
-fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 path=(
-  $HOME/.local/bin
+  /opt/homebrew/opt/coreutils/libexec/gnubin
+  $HOME/.cargo/bin
   $path
 )
 
