@@ -25,10 +25,6 @@ autoload -Uz compinit
 zstyle ':completion:*' list-colors $LS_COLORS
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # 大文字・小文字を区別しない
 
-# zmv
-autoload -Uz zmv
-alias zmv='noglob zmv -W'
-
 # vcs_info
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' formats '%b%m'
