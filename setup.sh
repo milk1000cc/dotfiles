@@ -22,7 +22,7 @@ link() {
 
   echo "# $src => $dest"
 
-  command="ln -sf $src_fullpath $dest/"
+  command="ln -sfn $src_fullpath $dest/$( basename $src )"
   echo $command
   $command
 
