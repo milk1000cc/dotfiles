@@ -21,7 +21,9 @@ zstyle ':zle:*' word-chars " /=;@:{},|-'\""
 zstyle ':zle:*' word-style unspecified  # word-chars を区切り文字として扱う
 
 # 補完
+eval "$(brew shellenv)"
 autoload -Uz compinit
+compinit
 zstyle ':completion:*' list-colors $LS_COLORS
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # 大文字・小文字を区別しない
 
@@ -81,7 +83,7 @@ _update_prompt() {
 }
 
 _update_curdir() {
-    echo $PWD > $HOME/.curdir
+  print -r -- $PWD >| ~/.curdir
 }
 
 autoload -Uz add-zsh-hook
@@ -89,18 +91,14 @@ add-zsh-hook precmd vcs_info
 add-zsh-hook precmd _update_prompt
 add-zsh-hook chpwd _update_curdir
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 path=(
   /opt/homebrew/opt/coreutils/libexec/gnubin
-  $HOME/.cargo/bin
+  ~/.cargo/bin
   $path
 )
-
-compinit
 
 [[ -z $TMUX ]] && tmux
 
 eval "$(mise activate zsh)"
 
-[[ -f "$HOME/.curdir" ]] && cd `cat $HOME/.curdir`
+[[ -r ~/.curdir ]] && cd -- "$(< ~/.curdir)"
