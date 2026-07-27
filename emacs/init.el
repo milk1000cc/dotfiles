@@ -264,16 +264,6 @@
   (setq sh-basic-offset 2)
   (setq sh-shell-file "/usr/bin/env sh"))
 
-;; systemd
-(use-package systemd
-  :mode (("\\.service\\.erb\\'" . systemd-mode)
-         ("\\.socket\\.erb\\'" . systemd-mode)))
-
-;; mmm-mode
-(use-package mmm-mode
-  :custom-face
-  (mmm-default-submode-face ((t (:background unspecified)))))
-
 ;; flycheck
 (use-package flycheck
   :hook (json-mode . flycheck-mode))
@@ -302,10 +292,8 @@
 (use-package ahk-mode)
 (use-package dockerfile-mode)
 (use-package dotenv-mode)
-(use-package nginx-mode)
 (use-package pug-mode)
 (use-package recentf-ext)
 (use-package rspec-mode)
 (use-package slim-mode)
-(use-package vue-mode)
 (use-package yaml-mode)
