@@ -191,8 +191,8 @@
   (helm-selection ((t (:extend t :background "ForestGreen"))))  ; SEE ALSO: helm-core.el
   (helm-buffer-directory ((t (:foreground "brightblue"))))
   (helm-ff-directory ((t (:background unspecified :foreground "LightSteelBlue"))))
-  (helm-ff-file ((t (:inherit 'helm-ff-directory))))
-  (helm-ff-symlink ((t (:inherit 'helm-ff-directory))))
+  (helm-ff-file ((t (:inherit helm-ff-directory))))
+  (helm-ff-symlink ((t (:inherit helm-ff-directory))))
   :config
   (use-package helm-projectile))
 
