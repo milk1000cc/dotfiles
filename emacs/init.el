@@ -17,6 +17,10 @@
 ;; ロックファイルを作成しない
 (setq create-lockfiles nil)
 
+;; カスタムファイルを別ファイルに
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(load custom-file 'noerror 'nomessage)
+
 ;; 列数を表示
 (column-number-mode t)
 
