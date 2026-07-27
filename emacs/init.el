@@ -253,6 +253,11 @@
             (lambda ()
               (setq-local comment-start "//"))))
 
+;; markdown-mode
+(use-package markdown-mode
+  ;; Codex や Claude Code で text-mode にする
+  :mode ("\\.md\\'" . text-mode))
+
 ;; sh-script
 (use-package sh-script
   :init
@@ -297,7 +302,6 @@
 (use-package ahk-mode)
 (use-package dockerfile-mode)
 (use-package dotenv-mode)
-(use-package markdown-mode)
 (use-package nginx-mode)
 (use-package pug-mode)
 (use-package recentf-ext)
