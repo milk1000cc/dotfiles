@@ -8,4 +8,6 @@
 /emacs/recentf
 /emacs/tramp
 /emacs/custom.el
-/emacs/elpa/
+/emacs/straight/*
+!/emacs/straight/
+!/emacs/straight/versions/

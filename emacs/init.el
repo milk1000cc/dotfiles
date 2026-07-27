@@ -1,3 +1,20 @@
+;; straight.el
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 6))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
+
 ;; スタートアップ時のメッセージを抑制
 (setq inhibit-startup-message t)
 
@@ -90,16 +107,9 @@
 (bind-key "C-x SPC" 'cua-set-rectangle-mark)
 (bind-key* "C-h" 'delete-backward-char)
 
-;; package.el
-(use-package package
-  :ensure nil
-  :config
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-  (setq use-package-always-ensure t))
-
 ;; dired
 (use-package dired
-  :ensure nil
+  :straight nil
   :bind (:map dired-mode-map
               ("e" . wdired-change-to-wdired-mode))
   :init
@@ -107,7 +117,7 @@
 
 ;; ls-lisp
 (use-package ls-lisp
-  :ensure nil
+  :straight nil
   :init
   ;; dired で "." ".." が必ず先頭に来るように
   (setq ls-lisp-use-insert-directory-program nil))
