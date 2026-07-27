@@ -69,19 +69,18 @@
 (setq-default major-mode 'text-mode)
 
 ;; フェイス
-(custom-set-faces
- '(default ((t (:background "#111" :foreground "#ccc"))))
- '(font-lock-builtin-face ((t (:foreground "brightblue"))))
- '(font-lock-comment-face ((t (:foreground "red"))))
- '(font-lock-constant-face ((t (:foreground "cyan"))))
- '(font-lock-function-name-face ((t (:foreground "brightblue"))))
- '(font-lock-keyword-face ((t (:foreground "brightblue"))))
- '(font-lock-string-face ((t (:foreground "red"))))
- '(font-lock-type-face ((t (:foreground "green"))))
- '(font-lock-variable-name-face ((t (:foreground "red"))))
- '(mode-line ((t (:background "#333" :foreground "#ccc"))))
- '(mode-line-inactive ((t (:background "#ccc" :foreground "#333"))))
- '(region ((t (:background "#666")))))
+(set-face-attribute 'default nil :background "#111" :foreground "#ccc")
+(set-face-attribute 'font-lock-builtin-face nil :foreground "brightblue")
+(set-face-attribute 'font-lock-comment-face nil :foreground "red")
+(set-face-attribute 'font-lock-constant-face nil :foreground "cyan")
+(set-face-attribute 'font-lock-function-name-face nil :foreground "brightblue")
+(set-face-attribute 'font-lock-keyword-face nil :foreground "brightblue")
+(set-face-attribute 'font-lock-string-face nil :foreground "red")
+(set-face-attribute 'font-lock-type-face nil :foreground "green")
+(set-face-attribute 'font-lock-variable-name-face nil :foreground "red")
+(set-face-attribute 'mode-line nil :background "#333" :foreground "#ccc")
+(set-face-attribute 'mode-line-inactive nil :background "#ccc" :foreground "#333")
+(set-face-attribute 'region nil :background "#666")
 
 ;; カスタムキーバインド
 (bind-key "C-x C-i" 'indent-region)
