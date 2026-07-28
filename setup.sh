@@ -37,6 +37,7 @@ link ".zshenv" $HOME
 link "emacs"
 link "git"
 link "mise"
+link "starship.toml"
 link "tmux"
 link "zsh"
 

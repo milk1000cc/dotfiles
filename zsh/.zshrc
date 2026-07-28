@@ -1,6 +1,5 @@
 # Thanks to:
 # WEB+DB PRESS Vol.83 (https://gihyo.jp/magazine/wdpress/archive/2014/vol83)
-# https://qiita.com/mollifier/items/8d5a627d773758dd8078
 
 HISTFILE=~/Dropbox/zsh_history
 HISTSIZE=10000
@@ -27,11 +26,6 @@ compinit
 zstyle ':completion:*' list-colors $LS_COLORS
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # 大文字・小文字を区別しない
 
-# vcs_info
-autoload -Uz vcs_info
-zstyle ':vcs_info:git:*' formats '%b%m'
-zstyle ':vcs_info:git+set-message:*' hooks git-stash-count
-
 setopt NO_FLOW_CONTROL  # ^Q/^S のフローコントロールを無効にする
 setopt NO_BEEP
 setopt SHARE_HISTORY
@@ -52,44 +46,14 @@ alias diff='colordiff -ur'
 alias pg_dump='pg_dump -Fc --no-acl --no-owner'
 alias pg_restore='pg_restore --clean --create --no-acl --no-owner -d postgres'
 
-+vi-git-stash-count() {
-    local cnt
-
-    cnt=$( git stash list 2>/dev/null | wc -l )
-
-    if [[ $cnt -gt 0 ]]; then
-        hook_com[misc]=":${cnt}"
-    fi
-}
-
-_update_prompt() {
-    local NEWLINE=$'\n'
-
-    local -a messages1 messages2
-    local ruby_version
-
-    messages1+=( "%F{yellow}%B%~%b%f" )
-
-    ruby_version=$( ruby -e "print RUBY_VERSION" )
-    messages1+=( "%F{magenta}%B%U(${ruby_version})%u%b%f" )
-
-    if [[ -n $vcs_info_msg_0_ ]]; then
-        messages1+=( "%F{green}%B[${vcs_info_msg_0_}]%b%f" )
-    fi
-
-    messages2+=( "%F{blue}%B%n@%m$%b%f" )
-
-    PROMPT="${(j: :)messages1}${NEWLINE}${(j: :)messages2} "
-}
-
 _update_curdir() {
   print -r -- $PWD >| ~/.curdir
 }
 
 autoload -Uz add-zsh-hook
-add-zsh-hook precmd vcs_info
-add-zsh-hook precmd _update_prompt
 add-zsh-hook chpwd _update_curdir
+
+[[ -r ~/.curdir ]] && cd -- "$(< ~/.curdir)"
 
 path=(
   /opt/homebrew/opt/coreutils/libexec/gnubin
@@ -100,5 +64,4 @@ path=(
 [[ -z $TMUX ]] && tmux
 
 eval "$(mise activate zsh)"
-
-[[ -r ~/.curdir ]] && cd -- "$(< ~/.curdir)"
+eval "$(starship init zsh)"

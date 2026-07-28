@@ -1,0 +1,47 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$directory\
+${custom.ruby}\
+$git_branch\
+$git_status\
+$line_break\
+$username\
+$hostname\
+$character"""
+
+add_newline = false
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+style = 'bold yellow'
+
+[custom.ruby]
+format = '[\($output\)]($style) '
+command = 'ruby -e "print RUBY_VERSION"'
+when = true
+style = 'bold underline purple'
+
+[git_branch]
+format = '[\[$branch]($style)'
+style = 'bold green'
+
+[git_status]
+format = '[$stashed\]]($style)'
+stashed = ':$count'
+style = 'bold green'
+
+[username]
+style_user = 'bold blue'
+format = '[$user]($style)'
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[@$hostname]($style)'
+style = 'bold blue'
+
+[character]
+success_symbol = '[\$](bold blue)'
+error_symbol = '[\$](bold blue)'
