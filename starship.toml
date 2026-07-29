@@ -31,5 +31,5 @@ up_to_date = '✓'
 stashed = ':$count'
 
 [character]
-success_symbol = '[\$](bold blue)'
-error_symbol = '[\$](bold blue)'
+success_symbol = '[❯](bold blue)'
+error_symbol = '[❯](bold blue)'
