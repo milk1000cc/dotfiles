@@ -6,6 +6,8 @@ $ruby\
 $git_branch\
 $git_status\
 $line_break\
+$username\
+$hostname\
 $character"""
 
 add_newline = false
@@ -30,6 +32,16 @@ style = 'bold green'
 up_to_date = '✓'
 stashed = ':$count'
 
+[username]
+style_user = 'bold blue'
+format = '[$user]($style)'
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[@$hostname]($style)'
+style = 'bold blue'
+
 [character]
-success_symbol = '[❯](bold blue)'
-error_symbol = '[❯](bold blue)'
+success_symbol = '[\$](bold blue)'
+error_symbol = '[\$](bold blue)'
