@@ -299,4 +299,5 @@
 (use-package recentf-ext)
 (use-package rspec-mode)
 (use-package slim-mode)
+(use-package swift-mode)
 (use-package yaml-mode)
