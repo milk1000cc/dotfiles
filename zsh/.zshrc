@@ -46,15 +46,6 @@ alias diff='colordiff -ur'
 alias pg_dump='pg_dump -Fc --no-acl --no-owner'
 alias pg_restore='pg_restore --clean --create --no-acl --no-owner -d postgres'
 
-_update_curdir() {
-  print -r -- $PWD >| ~/.curdir
-}
-
-autoload -Uz add-zsh-hook
-add-zsh-hook chpwd _update_curdir
-
-[[ -r ~/.curdir ]] && cd -- "$(< ~/.curdir)"
-
 path=(
   /opt/homebrew/opt/coreutils/libexec/gnubin
   ~/.cargo/bin
@@ -65,3 +56,29 @@ path=(
 
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
+
+autoload -Uz add-zsh-hook
+
+# 最後にいたディレクトリに移動
+_update_curdir() {
+  print -r -- $PWD >| ~/.curdir
+}
+
+add-zsh-hook chpwd _update_curdir
+
+[[ -r ~/.curdir ]] && cd -- "$(< ~/.curdir)"
+
+# リポジトリの自動 fetch
+typeset -gA _git_fetched_repositories
+
+_git_fetch_in_background() {
+  local git_dir
+  git_dir=$(git rev-parse --absolute-git-dir 2>/dev/null) || return
+
+  [[ -n ${_git_fetched_repositories[$git_dir]} ]] && return
+  _git_fetched_repositories[$git_dir]=1
+
+  GIT_TERMINAL_PROMPT=0 git fetch --quiet --no-recurse-submodules </dev/null &>/dev/null &!
+}
+
+add-zsh-hook precmd _git_fetch_in_background
