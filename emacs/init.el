@@ -65,6 +65,9 @@
 ;; 更新されたファイルを自動的に読み込み直す
 (global-auto-revert-mode t)
 
+;; 略称展開で大文字・小文字を区別
+(setq dabbrev-case-fold-search nil)
+
 ;; 略称は保存しない
 (setq save-abbrevs nil)
 
