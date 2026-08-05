@@ -256,6 +256,11 @@
             (lambda ()
               (setq-local comment-start "//"))))
 
+;; swift-mode
+(use-package swift-mode
+  :init
+  (setq swift-mode:basic-offset 2))
+
 ;; markdown-mode
 (use-package markdown-mode
   ;; Codex や Claude Code で text-mode にする
@@ -299,5 +304,4 @@
 (use-package recentf-ext)
 (use-package rspec-mode)
 (use-package slim-mode)
-(use-package swift-mode)
 (use-package yaml-mode)
