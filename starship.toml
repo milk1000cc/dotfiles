@@ -29,7 +29,6 @@ style = 'bold green'
 [git_status]
 format = '[$stashed( $ahead_behind)\]]($style)'
 style = 'bold green'
-up_to_date = '✓'
 stashed = ':$count'
 
 [username]
