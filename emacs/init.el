@@ -222,6 +222,39 @@
   :config
   (xclip-mode 1))
 
+;; corfu
+(use-package corfu
+  :bind ("C-c o" . my/corfu-toggle-auto)
+  :init
+  (setq completion-ignore-case t)
+  :config
+  (global-corfu-mode 1)
+  (defun my/corfu-toggle-auto ()
+    (interactive)
+    (setq-local corfu-auto (not corfu-auto))
+    (when corfu-mode
+      (corfu-mode -1)
+      (corfu-mode 1))
+    (message "Corfu auto completion: %s"
+             (if corfu-auto "ON" "OFF"))))
+
+;; corfu-terminal
+(use-package corfu-terminal
+  :config
+  (corfu-terminal-mode 1))
+
+;; eglot
+(use-package eglot
+  :straight nil
+  :config
+  (add-to-list 'eglot-stay-out-of 'flymake)
+  (add-to-list 'eglot-stay-out-of 'eldoc)
+  (add-to-list 'eglot-ignored-server-capabilities :documentHighlightProvider)
+  (add-to-list 'eglot-ignored-server-capabilities :inlayHintProvider)
+  (add-to-list 'eglot-server-programs '(swift-mode . ("xcrun" "sourcekit-lsp")))
+  :hook
+  (swift-mode . eglot-ensure))
+
 ;; enh-ruby-mode
 (use-package enh-ruby-mode
   :bind ("C-x r" . enh-ruby-mode)
