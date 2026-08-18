@@ -224,19 +224,11 @@
 
 ;; corfu
 (use-package corfu
-  :bind ("C-c o" . my/corfu-toggle-auto)
+  :bind ("C-c o" . completion-at-point)
   :init
   (setq completion-ignore-case t)
   :config
-  (global-corfu-mode 1)
-  (defun my/corfu-toggle-auto ()
-    (interactive)
-    (setq-local corfu-auto (not corfu-auto))
-    (when corfu-mode
-      (corfu-mode -1)
-      (corfu-mode 1))
-    (message "Corfu auto completion: %s"
-             (if corfu-auto "ON" "OFF"))))
+  (global-corfu-mode 1))
 
 ;; corfu-terminal
 (use-package corfu-terminal
