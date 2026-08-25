@@ -231,6 +231,8 @@
   (setq corfu-auto-delay 0.05)
   (setq corfu-auto-prefix 1)
   (setq completion-ignore-case t)
+  :config
+  (keymap-unset corfu-map "RET")
   :hook
   (swift-mode . corfu-mode))
 
