@@ -3,6 +3,7 @@
  ("bind-key" . "6ff8788e347ce31b5c3c4647c2e22e7ee2c5ab7c")
  ("compat" . "d3be8ee1b12809d6171c4384139a531de71343a5")
  ("cond-let" . "c48600dfab6372670225f046cace263700c78eab")
+ ("corfu" . "4b440fb30ff2fff4291af676b59da7ab22130a45")
  ("dash.el" . "d3a84021dbe48dba63b52ef7665651e0cf02e915")
  ("dockerfile-mode" . "97733ce074b1252c1270fd5e8a53d178b66668ed")
  ("el-get" . "447b7efc9fca29a087f4ec29c5d8ccb580cd1c78")
