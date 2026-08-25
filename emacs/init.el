@@ -226,19 +226,11 @@
 
 ;; corfu
 (use-package corfu
-  :bind ("C-c o" . my/corfu-toggle-auto)
   :init
+  (setq corfu-auto t)
   (setq completion-ignore-case t)
-  :config
-  (global-corfu-mode 1)
-  (defun my/corfu-toggle-auto ()
-    (interactive)
-    (setq-local corfu-auto (not corfu-auto))
-    (when corfu-mode
-      (corfu-mode -1)
-      (corfu-mode 1))
-    (message "Corfu auto completion: %s"
-             (if corfu-auto "ON" "OFF"))))
+  :hook
+  (swift-mode . corfu-mode))
 
 ;; eglot
 (use-package eglot
