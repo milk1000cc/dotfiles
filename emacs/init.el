@@ -232,6 +232,12 @@
   :hook
   (swift-mode . corfu-mode))
 
+;; kind-icon
+(use-package kind-icon
+  :after corfu
+  :config
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+
 ;; eglot
 (use-package eglot
   :straight nil
