@@ -228,6 +228,8 @@
 (use-package corfu
   :init
   (setq corfu-auto t)
+  (setq corfu-auto-delay 0.05)
+  (setq corfu-auto-prefix 1)
   (setq completion-ignore-case t)
   :hook
   (swift-mode . corfu-mode))
