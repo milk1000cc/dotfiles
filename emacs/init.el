@@ -58,7 +58,7 @@
 ;; シンボリックリンク先がバージョン管理されていても問題ない
 (setq vc-follow-symlinks t)
 
-;; C-j でインデント
+;; RET (C-m) で自動インデントしない
 (electric-indent-mode 0)
 
 ;; 対応する括弧をハイライト表示
