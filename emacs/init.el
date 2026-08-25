@@ -234,6 +234,7 @@
   (setq completion-ignore-case t)
   :config
   (keymap-unset corfu-map "RET")
+  (corfu-popupinfo-mode 1)
   :hook
   (swift-mode . corfu-mode))
 
