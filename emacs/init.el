@@ -308,11 +308,37 @@
 
 ;; swift-mode
 (use-package swift-mode
-    :bind
-    (:map swift-mode-map
-          ("C-j" . newline-and-indent))
-    :hook
-    (swift-mode . electric-indent-local-mode))
+  :bind
+  (:map swift-mode-map
+        ("C-j" . newline-and-indent))
+  :config
+  ;; trailing closure 後の . を } と同じ位置に揃える
+  (defun my/swift-indent-line ()
+    (interactive)
+    (let ((offset (- (current-column) (current-indentation)))
+          (indent
+           (save-excursion
+             (back-to-indentation)
+             (when (eq (char-after) ?.)
+               (forward-line -1)
+               (while (and (looking-at-p "^[[:space:]]*$")
+                           (not (bobp)))
+                 (forward-line -1))
+               (end-of-line)
+               (skip-chars-backward " \t")
+               (when (eq (char-before) ?})
+                 (current-indentation))))))
+      (if indent
+          (progn
+            (indent-line-to indent)
+            (when (> offset 0)
+              (move-to-column (+ indent offset))))
+        (swift-mode:indent-line))))
+  (defun my/swift-configure-indent ()
+    (setq-local indent-line-function #'my/swift-indent-line))
+  :hook
+  ((swift-mode . electric-indent-local-mode)
+   (swift-mode . my/swift-configure-indent)))
 
 ;; markdown-mode
 (use-package markdown-mode
