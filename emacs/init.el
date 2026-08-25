@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -237,11 +239,6 @@
       (corfu-mode 1))
     (message "Corfu auto completion: %s"
              (if corfu-auto "ON" "OFF"))))
-
-;; corfu-terminal
-(use-package corfu-terminal
-  :config
-  (corfu-terminal-mode 1))
 
 ;; eglot
 (use-package eglot
