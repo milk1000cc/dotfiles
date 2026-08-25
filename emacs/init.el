@@ -242,10 +242,8 @@
 (use-package eglot
   :straight nil
   :config
-  (add-to-list 'eglot-stay-out-of 'flymake)
-  (add-to-list 'eglot-stay-out-of 'eldoc)
-  (add-to-list 'eglot-ignored-server-capabilities :documentHighlightProvider)
-  (add-to-list 'eglot-ignored-server-capabilities :inlayHintProvider)
+  (setq eglot-stay-out-of '(flymake eldoc))
+  (setq eglot-ignored-server-capabilities '(:documentHighlightProvider :inlayHintProvider))
   (add-to-list 'eglot-server-programs '(swift-mode . ("xcrun" "sourcekit-lsp")))
 
   (defun my/eglot-prefix-completion-p (candidate)
