@@ -312,7 +312,7 @@
   (:map swift-mode-map
         ("C-j" . newline-and-indent))
   :config
-  ;; trailing closure 後の . を } と同じ位置に揃える
+  ;; ], ), } の次の行の . は追加でインデントしない
   (defun my/swift-indent-line ()
     (interactive)
     (let ((offset (- (current-column) (current-indentation)))
@@ -324,9 +324,7 @@
                (while (and (looking-at-p "^[[:space:]]*$")
                            (not (bobp)))
                  (forward-line -1))
-               (end-of-line)
-               (skip-chars-backward " \t")
-               (when (eq (char-before) ?})
+               (when (looking-at-p "^[[:space:]]*[])}][[:space:]]*$")
                  (current-indentation))))))
       (if indent
           (progn
