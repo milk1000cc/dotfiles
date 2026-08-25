@@ -247,6 +247,21 @@
   (add-to-list 'eglot-ignored-server-capabilities :documentHighlightProvider)
   (add-to-list 'eglot-ignored-server-capabilities :inlayHintProvider)
   (add-to-list 'eglot-server-programs '(swift-mode . ("xcrun" "sourcekit-lsp")))
+
+  (defun my/eglot-prefix-completion-p (candidate)
+    (let* ((bounds (bounds-of-thing-at-point 'symbol))
+           (prefix (if bounds
+                       (buffer-substring-no-properties (car bounds) (point))
+                     ""))
+           (item (get-text-property 0 'eglot--lsp-item candidate))
+           (filter-text (plist-get item :filterText)))
+      (string-prefix-p prefix (or filter-text candidate) completion-ignore-case)))
+  (defun my/eglot-filter-swift-completions (completion)
+    (if (and completion (derived-mode-p 'swift-mode))
+        (append completion '(:predicate my/eglot-prefix-completion-p))
+      completion))
+  (advice-add 'eglot-completion-at-point
+              :filter-return #'my/eglot-filter-swift-completions)
   :hook
   (swift-mode . eglot-ensure))
 
