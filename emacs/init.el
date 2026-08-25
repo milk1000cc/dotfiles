@@ -252,6 +252,7 @@
   (setq eglot-ignored-server-capabilities '(:inlayHintProvider :semanticTokensProvider))
   (add-to-list 'eglot-server-programs '(swift-mode . ("xcrun" "sourcekit-lsp")))
 
+  ;; Swift の補完候補を入力中の prefix に一致するものだけに絞る
   (defun my/eglot-prefix-completion-p (candidate)
     (let* ((bounds (bounds-of-thing-at-point 'symbol))
            (prefix (if bounds
