@@ -40,6 +40,7 @@ alias g='git'
 alias d='docker'
 alias dc='docker compose'
 alias r='rails'
+alias s='sweetpad'
 alias e=$EMACS_COMMAND
 alias vi='vim'
 alias diff='colordiff -ur'
