@@ -164,7 +164,7 @@
   (rg-info-face ((t (:foreground "brightgreen" :underline t))))
   :config
   ;; result buffer を都度生成する (https://rgel.readthedocs.io/en/2.2.1/usage.html#command-rg-save-search)
-  (defadvice rg-run (before rg-run-before activate)
+  (define-advice rg-run (:before (&rest _) save-search)
     (rg-save-search))
 
   (rg-define-search my/rg-literal
