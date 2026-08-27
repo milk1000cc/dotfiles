@@ -2,4 +2,4 @@
 # name: @State variable
 # key: @st
 # --
-@State var $0
+@State private var $0
