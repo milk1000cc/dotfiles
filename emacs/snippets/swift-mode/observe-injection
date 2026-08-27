@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: @ObserveInjection
+# key: @o
+# --
+@ObserveInjection var inject$0

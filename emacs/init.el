@@ -377,6 +377,13 @@
                                                   'projectile-rails-find-current-view))
       (projectile-rails-find-current-controller))))
 
+;; yasnippet
+(use-package yasnippet
+  :config
+  (yas-reload-all)
+  :hook
+  (swift-mode . yas-minor-mode))
+
 (use-package ahk-mode)
 (use-package dockerfile-mode)
 (use-package dotenv-mode)

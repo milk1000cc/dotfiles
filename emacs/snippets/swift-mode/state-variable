@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: @State variable
+# key: @st
+# --
+@State var $0
