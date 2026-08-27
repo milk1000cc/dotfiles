@@ -41,6 +41,7 @@ alias d='docker'
 alias dc='docker compose'
 alias r='rails'
 alias s='sweetpad'
+alias so='sweetpad open xcode'
 alias e=$EMACS_COMMAND
 alias vi='vim'
 alias diff='colordiff -ur'
