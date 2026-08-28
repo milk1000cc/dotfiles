@@ -226,6 +226,10 @@
 
 ;; corfu
 (use-package corfu
+  :bind
+  (:map corfu-map
+        ("TAB" . my/corfu-yas-expand-or-complete)
+        ("<tab>" . my/corfu-yas-expand-or-complete))
   :init
   (setq corfu-auto t)
   (setq corfu-auto-delay 0.05)
@@ -234,6 +238,11 @@
   (setq corfu-preselect 'first)
   (setq completion-ignore-case t)
   :config
+  (defun my/corfu-yas-expand-or-complete ()
+    (interactive)
+    (unless (yas-expand)
+      (corfu-complete)))
+
   (keymap-unset corfu-map "RET")
   (corfu-popupinfo-mode 1)
   :hook
