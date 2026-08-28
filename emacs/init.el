@@ -260,15 +260,20 @@
   ;; Swift の補完候補を入力中の prefix に一致するものだけに絞る
   (defun my/eglot-prefix-completion-p (candidate)
     (let* ((bounds (bounds-of-thing-at-point 'symbol))
-           (prefix (if bounds
-                       (buffer-substring-no-properties (car bounds) (point))
-                     ""))
+           (raw-prefix (if bounds
+                           (buffer-substring-no-properties (car bounds) (point))
+                         ""))
+           (prefix (string-remove-prefix "@" raw-prefix))
            (item (get-text-property 0 'eglot--lsp-item candidate))
            (filter-text (plist-get item :filterText)))
       (string-prefix-p prefix (or filter-text candidate) completion-ignore-case)))
   (defun my/eglot-filter-swift-completions (completion)
     (if (and completion (derived-mode-p 'swift-mode))
-        (append completion '(:predicate my/eglot-prefix-completion-p))
+        (let ((completion (copy-sequence completion)))
+          ;; Swift の属性や property wrapper を補完できるように
+          (when (eq (char-after (nth 0 completion)) ?@)
+            (setcar completion (1+ (nth 0 completion))))
+          (append completion '(:predicate my/eglot-prefix-completion-p)))
       completion))
   (advice-add 'eglot-completion-at-point
               :filter-return #'my/eglot-filter-swift-completions)
