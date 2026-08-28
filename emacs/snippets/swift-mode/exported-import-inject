@@ -1,5 +1,5 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: @_exported import Inject
-# key: @e
+# key: ii
 # --
 @_exported import Inject$0
