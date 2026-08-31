@@ -396,7 +396,18 @@
 
 ;; yasnippet
 (use-package yasnippet
+  :bind
+  (:map yas-keymap
+        ("TAB" . my/yas-next-field-or-corfu-complete)
+        ("<tab>" . my/yas-next-field-or-corfu-complete))
   :config
+  (defun my/yas-next-field-or-corfu-complete ()
+    (interactive)
+    (if (and (boundp 'corfu--candidates)
+             corfu--candidates)
+        (corfu-complete)
+      (yas-next-field-or-maybe-expand)))
+
   (yas-reload-all)
   :hook
   (swift-mode . yas-minor-mode))
