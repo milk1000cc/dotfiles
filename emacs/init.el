@@ -97,7 +97,6 @@
 (set-face-attribute 'font-lock-constant-face nil :foreground "cyan")
 (set-face-attribute 'font-lock-function-name-face nil :foreground "brightblue")
 (set-face-attribute 'font-lock-keyword-face nil :foreground "brightblue")
-(set-face-attribute 'font-lock-property-use-face nil :foreground "#ccc")
 (set-face-attribute 'font-lock-string-face nil :foreground "red")
 (set-face-attribute 'font-lock-type-face nil :foreground "green")
 (set-face-attribute 'font-lock-variable-name-face nil :foreground "red")
