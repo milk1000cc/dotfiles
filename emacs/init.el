@@ -328,7 +328,7 @@
   (:map swift-mode-map
         ("C-j" . newline-and-indent))
   :config
-  ;; ], ), } の次の行の . は追加でインデントしない
+  ;; 複数行の式が ], ), } で終わる場合、次の行の . は追加でインデントしない
   (defun my/swift-indent-line ()
     (interactive)
     (let ((offset (- (current-column) (current-indentation)))
@@ -340,8 +340,16 @@
                (while (and (looking-at-p "^[[:space:]]*$")
                            (not (bobp)))
                  (forward-line -1))
-               (when (looking-at-p "^[[:space:]]*[])}][[:space:]]*$")
-                 (current-indentation))))))
+               (end-of-line)
+               (skip-chars-backward " \t")
+               (when (memq (char-before) '(?\] ?\) ?\}))
+                 (let ((closing-line (line-number-at-pos)))
+                   (condition-case nil
+                       (progn
+                         (backward-list)
+                         (when (/= (line-number-at-pos) closing-line)
+                           (current-indentation)))
+                     (scan-error nil))))))))
       (if indent
           (progn
             (indent-line-to indent)
