@@ -92,6 +92,7 @@
 
 ;; フェイス
 (set-face-attribute 'default nil :background "#111" :foreground "#ccc")
+(set-face-attribute 'delete-selection-replacement nil :inherit nil)
 (set-face-attribute 'font-lock-builtin-face nil :foreground "brightblue")
 (set-face-attribute 'font-lock-comment-face nil :foreground "red")
 (set-face-attribute 'font-lock-constant-face nil :foreground "cyan")
