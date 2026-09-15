@@ -258,6 +258,9 @@
 ;; eglot
 (use-package eglot
   :straight nil
+  :bind
+  (:map eglot-mode-map
+        ("C-x r" . eglot-reconnect))
   :config
   (setq eglot-stay-out-of '(flymake eldoc))
   (setq eglot-ignored-server-capabilities '(:inlayHintProvider :semanticTokensProvider))
