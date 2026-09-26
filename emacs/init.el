@@ -368,8 +368,8 @@
 
 ;; markdown-mode
 (use-package markdown-mode
-  ;; Codex や Claude Code で text-mode にする
-  :mode ("\\.md\\'" . text-mode))
+  ;; Codex の外部エディタ用一時ファイルを text-mode にする
+  :mode ("\\.tmp[[:alnum:]]+\\.md\\'" . text-mode))
 
 ;; sh-script
 (use-package sh-script
