@@ -58,6 +58,7 @@ add-zsh-hook chpwd _update_curdir
 [[ -r ~/.curdir ]] && cd -- "$(< ~/.curdir)"
 
 path=(
+  ~/.local/bin
   /opt/homebrew/opt/coreutils/libexec/gnubin
   ~/.cargo/bin
   $path
