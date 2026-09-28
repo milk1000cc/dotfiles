@@ -29,9 +29,7 @@ link() {
   echo
 }
 
-if ! [ -d $CONFIG_DIR ]; then
-  mkdir $CONFIG_DIR
-fi
+mkdir -p $CONFIG_DIR
 
 link ".zshenv" $HOME
 link "emacs"
@@ -40,6 +38,9 @@ link "mise"
 link "starship.toml"
 link "tmux"
 link "zsh"
+
+mkdir -p "$HOME/.claude"
+link "claude/settings.json" "$HOME/.claude"
 
 link ".bundle" $HOME
 link ".default-gems" $HOME
