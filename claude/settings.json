@@ -1,5 +1,6 @@
 {
   "disableAgentView": true,
+  "tui": "default",
   "permissions": {
     "ask": [
       "Bash(git commit:*)",
