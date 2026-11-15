@@ -8,6 +8,7 @@
   "disableAgentView": true,
   "spinnerTipsEnabled": false,
   "promptSuggestionEnabled": false,
+  "awaySummaryEnabled": false,
   "tui": "default",
-  "awaySummaryEnabled": false
+  "autoMemoryEnabled": false
 }
