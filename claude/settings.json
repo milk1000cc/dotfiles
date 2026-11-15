@@ -1,12 +1,13 @@
 {
-  "disableAgentView": true,
-  "tui": "default",
   "permissions": {
     "ask": [
       "Bash(git commit:*)",
       "Bash(git push:*)"
     ]
   },
+  "disableAgentView": true,
   "spinnerTipsEnabled": false,
-  "promptSuggestionEnabled": false
+  "promptSuggestionEnabled": false,
+  "tui": "default",
+  "awaySummaryEnabled": false
 }
