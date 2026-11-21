@@ -160,6 +160,7 @@
   (setq rg-group-result nil)
   (setq rg-show-columns t)
   (setq rg-show-header nil)
+  (setq rg-use-json-output nil)
   (setq transient-save-history nil)
   :custom-face
   (rg-info-face ((t (:foreground "brightgreen" :underline t))))
